@@ -1,0 +1,26 @@
+{
+  "by_obligation_status": {
+    "14_4_a_understanding": "evidenced",
+    "14_4_b_automation_bias": "evidenced",
+    "14_4_c_interpretation": "evidenced",
+    "14_4_d_override_disregard": "evidenced",
+    "14_4_e_intervene_stop": "evidenced",
+    "14_5_two_person": "evidenced"
+  },
+  "finding_count": 1,
+  "high_attention_count": 1,
+  "obligation_count": 6,
+  "overall_posture": "evidence_present",
+  "severity_counts": {
+    "governance_action_recommended": 0,
+    "high_attention": 1,
+    "informational": 0,
+    "review_recommended": 0
+  },
+  "status_counts": {
+    "evidenced": 6,
+    "insufficient_evidence": 0,
+    "not_applicable": 0,
+    "partially_evidenced": 0
+  }
+}

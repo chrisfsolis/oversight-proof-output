@@ -1,0 +1,31 @@
+{
+  "attention_findings": 1,
+  "by_family": {
+    "risky_bypass": 1
+  },
+  "by_severity": {
+    "governance_action_recommended": 0,
+    "high_attention": 1,
+    "informational": 0,
+    "review_recommended": 0
+  },
+  "disclaimer": "Advisory only. Accountable owners remain the source of truth for auto-approval policy and outcomes. This audit sample supports retrospective human spot-check; it does not certify the whole population, and escapes are a lagging signal. All data is synthetic.",
+  "escape_count": 0,
+  "escape_rate": 0.0,
+  "fail_threshold": 5,
+  "findings_total": 1,
+  "high_attention_count": 0,
+  "matrix": {
+    "risky_bypass": {
+      "governance_action_recommended": 0,
+      "high_attention": 1,
+      "informational": 0,
+      "review_recommended": 0
+    }
+  },
+  "population": 29,
+  "posture": "high_attention",
+  "posture_explanation": "29 auto-approved items audited; 0 escaped (rate 0.000). 1 findings (1 at high_attention or above; 1 risky bypasses). Posture 'high_attention' reflects the highest-severity finding present.",
+  "report": "auto_approval_safety_scorecard",
+  "risky_bypass_count": 1
+}

@@ -1,0 +1,36 @@
+{
+  "disclaimer": "Advisory only. Accountable owners remain the source of truth for auto-approval policy and outcomes. This audit sample supports retrospective human spot-check; it does not certify the whole population, and escapes are a lagging signal. All data is synthetic.",
+  "findings": [],
+  "max_escape_rate": 0.1,
+  "min_segment_size": 10,
+  "report": "segment_escape_report",
+  "segments": [
+    {
+      "ci_high": null,
+      "ci_low": null,
+      "escapes": 0,
+      "population": 6,
+      "rate": null,
+      "segment": "account_appeal",
+      "sufficient": false
+    },
+    {
+      "ci_high": 0.228095,
+      "ci_low": 0.0,
+      "escapes": 0,
+      "population": 13,
+      "rate": 0.0,
+      "segment": "content_flag",
+      "sufficient": true
+    },
+    {
+      "ci_high": 0.277533,
+      "ci_low": 0.0,
+      "escapes": 0,
+      "population": 10,
+      "rate": 0.0,
+      "segment": "payment_hold",
+      "sufficient": true
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "achieved_margin": 0.178919,
+  "achieved_sample_size": 15,
+  "assumptions": [
+    "p=0.5 maximizes variance, giving a conservative sample size.",
+    "Wilson score intervals are used for proportion estimates.",
+    "Systematic selection over a stable item_id sort is deterministic.",
+    "A sample supports spot-check; it does not certify the whole population."
+  ],
+  "census_reason": "",
+  "citations": [
+    "Cochran, W. G. (1977). Sampling Techniques (3rd ed.). Wiley.",
+    "Wilson, E. B. (1927). Probable inference, the law of succession, and statistical inference. JASA, 22(158), 209-212."
+  ],
+  "confidence": 0.95,
+  "disclaimer": "Advisory only. Accountable owners remain the source of truth for auto-approval policy and outcomes. This audit sample supports retrospective human spot-check; it does not certify the whole population, and escapes are a lagging signal. All data is synthetic.",
+  "finite_population_correction": "n = n0 / (1 + (n0-1)/N)",
+  "is_census": false,
+  "method": "stratified systematic (deterministic, no RNG)",
+  "population": 29,
+  "report": "sampling_methodology",
+  "sample_size_formula": "Cochran n0 = z^2 * p(1-p) / e^2, p=0.5 conservative",
+  "selection": "per stratum: sort by item_id, stride = ceil(N_h/n_h), pick every stride-th from index 0",
+  "stratify_by": [
+    "item_type"
+  ],
+  "target_margin": 0.1,
+  "target_sample_size": 23
+}

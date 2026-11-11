@@ -1,0 +1,36 @@
+{
+  "disclaimer": "Advisory only. Accountable owners remain the source of truth for auto-approval policy and outcomes. This audit sample supports retrospective human spot-check; it does not certify the whole population, and escapes are a lagging signal. All data is synthetic.",
+  "findings": [
+    {
+      "detail": "TF-AUTO-RISK1 (content_flag) was auto-approved under AR-payment but: item_type 'content_flag' is not allowed by AR-payment.",
+      "evidence": {
+        "ineligible_reasons": [],
+        "item_id": "TF-AUTO-RISK1",
+        "item_type": "content_flag",
+        "rule_id": "AR-payment",
+        "rule_reasons": [
+          "item_type 'content_flag' is not allowed by AR-payment"
+        ]
+      },
+      "family": "risky_bypass",
+      "finding_id": "F-risky_bypass-ea96d0eec6497306",
+      "recommendation": "Route TF-AUTO-RISK1 for retrospective human review and tighten the bypass policy or rule that let it through.",
+      "severity": "high_attention",
+      "subject": "TF-AUTO-RISK1",
+      "title": "Item TF-AUTO-RISK1 bypassed review but should not have"
+    }
+  ],
+  "items": [
+    {
+      "ineligible_reasons": [],
+      "item_id": "TF-AUTO-RISK1",
+      "item_type": "content_flag",
+      "rule_id": "AR-payment",
+      "rule_reasons": [
+        "item_type 'content_flag' is not allowed by AR-payment"
+      ],
+      "severity": "high_attention"
+    }
+  ],
+  "report": "risky_bypass_report"
+}

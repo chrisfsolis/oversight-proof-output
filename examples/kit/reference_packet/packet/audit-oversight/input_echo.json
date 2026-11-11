@@ -1,0 +1,49 @@
+{
+  "article14_mapping": {
+    "14_4_a_understanding": [
+      "coverage"
+    ],
+    "14_4_b_automation_bias": [
+      "override_rate",
+      "intervention_rate"
+    ],
+    "14_4_c_interpretation": [
+      "edit_rate"
+    ],
+    "14_4_d_override_disregard": [
+      "override_rate",
+      "stop_rate"
+    ],
+    "14_4_e_intervene_stop": [
+      "stop_rate",
+      "intervention_rate"
+    ],
+    "14_5_two_person": [
+      "two_person_coverage"
+    ]
+  },
+  "as_of": "2026-05-20T00:00:00Z",
+  "policy": {
+    "coverage_target": 1.0,
+    "expected_signals": {
+      "interventions_present": true,
+      "override_capability_exercised": true
+    },
+    "fail_threshold": {
+      "high_attention_count": 5
+    },
+    "in_scope": {
+      "ai_assisted": true,
+      "high_risk_use": true
+    },
+    "min_decision_latency_minutes": 2,
+    "two_person_required": {
+      "applies_to_risk_categories": [
+        "credit_decision"
+      ],
+      "min_verifiers": 2
+    }
+  },
+  "scenario": "Consumer lending - loan application review",
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,77 @@
+{
+  "as_of": "2026-05-20T00:00:00+00:00",
+  "disclaimer": "Advisory statistical signals, not conclusive proof of motive or fault. Not a performance-management or disciplinary instrument; the accountable governance owner remains the source of truth.",
+  "eligible_item_count": 20,
+  "headline": {
+    "band": "almost_perfect",
+    "method": "krippendorff_alpha",
+    "status": "evidenced",
+    "value": 0.828947
+  },
+  "insufficient_overlap": false,
+  "min_overlap": 2,
+  "note": "",
+  "overall": {
+    "cohen_kappa": {
+      "band": "almost_perfect",
+      "degenerate": false,
+      "expected_agreement": null,
+      "n_categories": 4,
+      "n_items": 20,
+      "note": "Mean of defined pairwise Cohen's kappa values.",
+      "observed_agreement": null,
+      "value": 0.826087
+    },
+    "fleiss_kappa": {
+      "band": "almost_perfect",
+      "degenerate": false,
+      "expected_agreement": 0.43,
+      "n_categories": 4,
+      "n_items": 20,
+      "note": "",
+      "observed_agreement": 0.9,
+      "value": 0.824561
+    },
+    "gwet_ac1": {
+      "band": "almost_perfect",
+      "degenerate": false,
+      "expected_agreement": 0.19,
+      "n_categories": 4,
+      "n_items": 20,
+      "note": "",
+      "observed_agreement": 0.9,
+      "value": 0.876543
+    },
+    "krippendorff_alpha": {
+      "band": "almost_perfect",
+      "degenerate": false,
+      "expected_agreement": 0.415385,
+      "n_categories": 4,
+      "n_items": 0,
+      "note": "",
+      "observed_agreement": 0.9,
+      "value": 0.828947
+    },
+    "percent_agreement": {
+      "band": "almost_perfect",
+      "degenerate": false,
+      "expected_agreement": null,
+      "n_categories": 4,
+      "n_items": 20,
+      "note": "",
+      "observed_agreement": 0.9,
+      "value": 0.9
+    }
+  },
+  "pairwise": [
+    {
+      "band": "almost_perfect",
+      "cohen_kappa": 0.826087,
+      "note": "",
+      "reviewer_a": "r_alex",
+      "reviewer_b": "r_blake",
+      "shared_items": 20
+    }
+  ],
+  "report": "inter_rater_reliability_report"
+}

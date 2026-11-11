@@ -1,0 +1,155 @@
+{
+  "analyzed_group_count": 2,
+  "as_of": "2026-05-20T00:00:00+00:00",
+  "disclaimer": "Advisory statistical signals, not conclusive proof of motive or fault. Not a performance-management or disciplinary instrument; the accountable governance owner remains the source of truth.",
+  "group_by": [
+    "item_type",
+    "value_band",
+    "urgency_band",
+    "risk_categories"
+  ],
+  "group_count": 7,
+  "groups": [
+    {
+      "decision_count": 0,
+      "group_id": "FND-SIMIL-3f496d790a",
+      "group_key": {
+        "item_type": "account_appeal",
+        "risk_categories": "billing",
+        "urgency_band": "normal",
+        "value_band": "low"
+      },
+      "item_count": 6,
+      "modal_outcome": null,
+      "modal_share": null,
+      "normalized_entropy": null,
+      "reviewer_deviations": [],
+      "status": "insufficient_data"
+    },
+    {
+      "decision_count": 0,
+      "group_id": "FND-SIMIL-59aceea10f",
+      "group_key": {
+        "item_type": "content_flag",
+        "risk_categories": "none",
+        "urgency_band": "normal",
+        "value_band": "low"
+      },
+      "item_count": 13,
+      "modal_outcome": null,
+      "modal_share": null,
+      "normalized_entropy": null,
+      "reviewer_deviations": [],
+      "status": "insufficient_data"
+    },
+    {
+      "decision_count": 4,
+      "group_id": "FND-SIMIL-ce8b668841",
+      "group_key": {
+        "item_type": "loan_appeal",
+        "risk_categories": "credit_decision",
+        "urgency_band": "urgent",
+        "value_band": "high"
+      },
+      "item_count": 2,
+      "modal_outcome": null,
+      "modal_share": null,
+      "normalized_entropy": null,
+      "reviewer_deviations": [],
+      "status": "insufficient_data"
+    },
+    {
+      "decision_count": 4,
+      "group_id": "FND-SIMIL-3991cfcf42",
+      "group_key": {
+        "item_type": "loan_exception",
+        "risk_categories": "credit_decision",
+        "urgency_band": "urgent",
+        "value_band": "high"
+      },
+      "item_count": 2,
+      "modal_outcome": null,
+      "modal_share": null,
+      "normalized_entropy": null,
+      "reviewer_deviations": [],
+      "status": "insufficient_data"
+    },
+    {
+      "decision_count": 20,
+      "group_id": "FND-SIMIL-2aa584ff5c",
+      "group_key": {
+        "item_type": "loan_origination",
+        "risk_categories": "credit_decision",
+        "urgency_band": "urgent",
+        "value_band": "high"
+      },
+      "item_count": 10,
+      "modal_outcome": "approve",
+      "modal_share": 1.0,
+      "normalized_entropy": 0.0,
+      "reviewer_deviations": [
+        {
+          "decisions_in_group": 10,
+          "deviation_share": 0.0,
+          "modal_outcome": "approve",
+          "reviewer_id": "r_alex"
+        },
+        {
+          "decisions_in_group": 10,
+          "deviation_share": 0.0,
+          "modal_outcome": "approve",
+          "reviewer_id": "r_blake"
+        }
+      ],
+      "status": "analyzed"
+    },
+    {
+      "decision_count": 12,
+      "group_id": "FND-SIMIL-318039f359",
+      "group_key": {
+        "item_type": "loan_restructure",
+        "risk_categories": "credit_decision",
+        "urgency_band": "urgent",
+        "value_band": "high"
+      },
+      "item_count": 6,
+      "modal_outcome": "reject",
+      "modal_share": 1.0,
+      "normalized_entropy": 0.0,
+      "reviewer_deviations": [
+        {
+          "decisions_in_group": 6,
+          "deviation_share": 0.0,
+          "modal_outcome": "reject",
+          "reviewer_id": "r_alex"
+        },
+        {
+          "decisions_in_group": 6,
+          "deviation_share": 0.0,
+          "modal_outcome": "reject",
+          "reviewer_id": "r_blake"
+        }
+      ],
+      "status": "analyzed"
+    },
+    {
+      "decision_count": 0,
+      "group_id": "FND-SIMIL-4dc04742f9",
+      "group_key": {
+        "item_type": "payment_hold",
+        "risk_categories": "none",
+        "urgency_band": "normal",
+        "value_band": "low"
+      },
+      "item_count": 10,
+      "modal_outcome": null,
+      "modal_share": null,
+      "normalized_entropy": null,
+      "reviewer_deviations": [],
+      "status": "insufficient_data"
+    }
+  ],
+  "insufficient_group_count": 5,
+  "min_group_size": 5,
+  "report": "similar_item_consistency_report"
+}

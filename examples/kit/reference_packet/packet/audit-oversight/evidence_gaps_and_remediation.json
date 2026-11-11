@@ -1,0 +1,15 @@
+{
+  "findings": [
+    {
+      "code": "FAST_DECISIONS",
+      "detail": "2/40 decisions (0.050) were faster than min_decision_latency_minutes=2. Implausibly fast decisions are a weak-evidence SIGNAL that review may be nominal, not proof. Affected: DEC-0001, DEC-0008.",
+      "finding_id": "F-0001",
+      "refs": [
+        "DEC-0001",
+        "DEC-0008"
+      ],
+      "severity": "high_attention",
+      "title": "Decisions below the minimum plausible review time"
+    }
+  ]
+}

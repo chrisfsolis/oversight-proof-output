@@ -1,0 +1,11 @@
+{
+  "baseline_obligation_status": {
+    "14_4_a_understanding": "evidenced",
+    "14_4_b_automation_bias": "evidenced",
+    "14_4_c_interpretation": "evidenced",
+    "14_4_d_override_disregard": "evidenced",
+    "14_4_e_intervene_stop": "evidenced",
+    "14_5_two_person": "evidenced"
+  },
+  "levers": []
+}

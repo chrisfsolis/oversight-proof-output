@@ -1,0 +1,18 @@
+{
+  "below_minimum_count": 2,
+  "below_minimum_decision_ids": [
+    "DEC-0001",
+    "DEC-0008"
+  ],
+  "below_minimum_share": 0.05,
+  "distribution": {
+    "count": 40,
+    "max": 17.0,
+    "mean": 12.075,
+    "median": 12.5,
+    "min": 1.0
+  },
+  "metric": "timeliness",
+  "min_decision_latency_minutes": 2.0,
+  "status": "evidenced"
+}

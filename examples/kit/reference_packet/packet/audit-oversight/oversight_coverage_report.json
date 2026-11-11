@@ -1,0 +1,9 @@
+{
+  "coverage": 1.0,
+  "coverage_target": 1.0,
+  "covered_count": 20,
+  "gap_item_ids": [],
+  "in_scope_count": 20,
+  "metric": "coverage",
+  "status": "evidenced"
+}

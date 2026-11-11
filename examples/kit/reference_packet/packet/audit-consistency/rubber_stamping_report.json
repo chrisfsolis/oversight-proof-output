@@ -1,0 +1,56 @@
+{
+  "as_of": "2026-05-20T00:00:00+00:00",
+  "disclaimer": "Advisory statistical signals, not conclusive proof of motive or fault. Not a performance-management or disciplinary instrument; the accountable governance owner remains the source of truth.",
+  "flagged_count": 0,
+  "latency_floor_minutes": 2.0,
+  "min_decisions": 20,
+  "report": "rubber_stamping_report",
+  "reviewers": [
+    {
+      "approval_rate": 0.6,
+      "edit_rate": 0.25,
+      "eligible": true,
+      "flagged": false,
+      "latency": {
+        "max": 17.0,
+        "mean": 11.85,
+        "median": 12.5,
+        "min": 1.0,
+        "share_below_floor": 0.05
+      },
+      "n_decisions": 20,
+      "override_rate": 0.15,
+      "reviewer_id": "r_alex",
+      "signals": {
+        "approval_rate_high": false,
+        "edit_rate_low": false,
+        "fast_latency": false,
+        "override_rate_low": false
+      },
+      "signals_met": 0
+    },
+    {
+      "approval_rate": 0.5,
+      "edit_rate": 0.15,
+      "eligible": true,
+      "flagged": false,
+      "latency": {
+        "max": 17.0,
+        "mean": 12.3,
+        "median": 12.5,
+        "min": 1.0,
+        "share_below_floor": 0.05
+      },
+      "n_decisions": 20,
+      "override_rate": 0.15,
+      "reviewer_id": "r_blake",
+      "signals": {
+        "approval_rate_high": false,
+        "edit_rate_low": false,
+        "fast_latency": false,
+        "override_rate_low": false
+      },
+      "signals_met": 0
+    }
+  ]
+}

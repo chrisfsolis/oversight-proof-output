@@ -1,0 +1,97 @@
+{
+  "obligations": [
+    {
+      "caveat": "Advisory evidence status only; not a compliance determination and not legal advice. The accountable owner and qualified counsel decide whether the obligation is met.",
+      "evidence_status": "evidenced",
+      "metrics": [
+        {
+          "metric": "coverage",
+          "status": "evidenced",
+          "value": 1.0
+        }
+      ],
+      "obligation": "14_4_a_understanding",
+      "text": "Art.14(4)(a): the human can properly understand the relevant capacities and limitations of the high-risk AI system and monitor its operation."
+    },
+    {
+      "caveat": "Advisory evidence status only; not a compliance determination and not legal advice. The accountable owner and qualified counsel decide whether the obligation is met.",
+      "evidence_status": "evidenced",
+      "metrics": [
+        {
+          "metric": "override_rate",
+          "status": "evidenced",
+          "value": 0.15
+        },
+        {
+          "metric": "intervention_rate",
+          "status": "evidenced",
+          "value": 0.35
+        }
+      ],
+      "obligation": "14_4_b_automation_bias",
+      "text": "Art.14(4)(b): the human remains aware of and guards against automation bias (over-reliance on the system's output)."
+    },
+    {
+      "caveat": "Advisory evidence status only; not a compliance determination and not legal advice. The accountable owner and qualified counsel decide whether the obligation is met.",
+      "evidence_status": "evidenced",
+      "metrics": [
+        {
+          "metric": "edit_rate",
+          "status": "evidenced",
+          "value": 0.2
+        }
+      ],
+      "obligation": "14_4_c_interpretation",
+      "text": "Art.14(4)(c): the human can correctly interpret the system's output."
+    },
+    {
+      "caveat": "Advisory evidence status only; not a compliance determination and not legal advice. The accountable owner and qualified counsel decide whether the obligation is met.",
+      "evidence_status": "evidenced",
+      "metrics": [
+        {
+          "metric": "override_rate",
+          "status": "evidenced",
+          "value": 0.15
+        },
+        {
+          "metric": "stop_rate",
+          "status": "evidenced",
+          "value": 0.05
+        }
+      ],
+      "obligation": "14_4_d_override_disregard",
+      "text": "Art.14(4)(d): the human can decide not to use the output or to disregard, override, or reverse it."
+    },
+    {
+      "caveat": "Advisory evidence status only; not a compliance determination and not legal advice. The accountable owner and qualified counsel decide whether the obligation is met.",
+      "evidence_status": "evidenced",
+      "metrics": [
+        {
+          "metric": "stop_rate",
+          "status": "evidenced",
+          "value": 0.05
+        },
+        {
+          "metric": "intervention_rate",
+          "status": "evidenced",
+          "value": 0.35
+        }
+      ],
+      "obligation": "14_4_e_intervene_stop",
+      "text": "Art.14(4)(e): the human can intervene in operation or stop the system via a stop button or similar."
+    },
+    {
+      "caveat": "Advisory evidence status only; not a compliance determination and not legal advice. The accountable owner and qualified counsel decide whether the obligation is met.",
+      "evidence_status": "evidenced",
+      "metrics": [
+        {
+          "metric": "two_person_coverage",
+          "status": "evidenced",
+          "value": 1.0
+        }
+      ],
+      "obligation": "14_5_two_person",
+      "text": "Art.14(5): for certain systems, action/decision is confirmed by at least two competent persons (e.g. specified biometric uses)."
+    }
+  ]
+}

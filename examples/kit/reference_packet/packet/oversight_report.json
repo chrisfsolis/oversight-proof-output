@@ -1,0 +1,299 @@
+{
+  "title": "Oversight Proof evidence packet",
+  "as_of": "2026-05-20T00:00:00Z",
+  "scenario": "Consumer lending - loan application review",
+  "disclaimer": "Advisory evidence only. This packet compiles deterministic, local audit outputs over synthetic or supplied data. It is not a compliance determination or legal advice; the accountable owner (and, where relevant, qualified counsel) remains the source of truth. Each metric is shown with how completely its source data carried the field it reads.",
+  "executive_summary": {
+    "readiness": "No escalating findings across the audited areas; review the detail before relying.",
+    "readiness_level": "no_escalating_findings",
+    "scorecard": [
+      {"area": "Oversight evidence", "status": "evidence_present"},
+      {"area": "Reviewer consistency", "status": "informational"},
+      {"area": "Auto-approval safety", "status": "high_attention"},
+      {"area": "Evidence integrity", "status": "tamper_evident_manifest"}
+    ],
+    "plain_summary": ["20 review items were recorded over Consumer lending - loan application review, as of 2026-05-20.", "All 20 review items have at least one recorded decision (100%). 14 of 40 decisions changed the AI's output in some way (35%). 0 of 29 auto-approved items later turned out to need a person.", "No governance action is recommended by this packet."]
+  },
+  "key_metrics": [
+    {
+      "metric": "coverage",
+      "label": "Oversight coverage",
+      "tool": "audit-oversight",
+      "value": "100%",
+      "status": "evidenced",
+      "confidence": {"band": "HIGH", "fraction": 1.0, "present": 49, "reason": "`review_items` present (49 records)", "total": 49},
+      "count": 20,
+      "denominator": 20,
+      "second_actor_recorded": null,
+      "measured_population": null,
+      "unmeasured_count": null,
+      "statement": "All 20 review items have at least one recorded decision (100%)."
+    },
+    {
+      "metric": "override_rate",
+      "label": "Override rate",
+      "tool": "audit-oversight",
+      "value": "15%",
+      "status": "evidenced",
+      "confidence": {"band": "HIGH", "fraction": 1.0, "present": 40, "reason": "`override` present in 100% of decision_log records", "total": 40},
+      "count": 6,
+      "denominator": null,
+      "second_actor_recorded": null,
+      "measured_population": null,
+      "unmeasured_count": null,
+      "statement": "6 of 40 decisions that recorded the override field overrode the AI's recommendation (15%)."
+    },
+    {
+      "metric": "intervention_rate",
+      "label": "Intervention rate",
+      "tool": "audit-oversight",
+      "value": "35%",
+      "status": "evidenced",
+      "confidence": {"band": "HIGH", "fraction": 1.0, "present": 40, "reason": "`outcome` present in 100% of decision_log records", "total": 40},
+      "count": 14,
+      "denominator": null,
+      "second_actor_recorded": null,
+      "measured_population": null,
+      "unmeasured_count": null,
+      "statement": "14 of 40 decisions changed the AI's output in some way (35%)."
+    },
+    {
+      "metric": "edit_rate",
+      "label": "Edit rate",
+      "tool": "audit-oversight",
+      "value": "20%",
+      "status": "evidenced",
+      "confidence": {"band": "HIGH", "fraction": 1.0, "present": 40, "reason": "`edited` present in 100% of decision_log records", "total": 40},
+      "count": 8,
+      "denominator": null,
+      "second_actor_recorded": null,
+      "measured_population": null,
+      "unmeasured_count": null,
+      "statement": "8 of 40 decisions that recorded it were edited by the reviewer (20%)."
+    },
+    {
+      "metric": "stop_rate",
+      "label": "Stop rate",
+      "tool": "audit-oversight",
+      "value": "5%",
+      "status": "evidenced",
+      "confidence": {"band": "HIGH", "fraction": 1.0, "present": 40, "reason": "`stop_invoked` present in 100% of decision_log records", "total": 40},
+      "count": 2,
+      "denominator": null,
+      "second_actor_recorded": null,
+      "measured_population": null,
+      "unmeasured_count": null,
+      "statement": "2 of 40 decisions invoked a stop (5%)."
+    },
+    {
+      "metric": "two_person_coverage",
+      "label": "Two-person coverage",
+      "tool": "audit-oversight",
+      "value": "100%",
+      "status": "evidenced",
+      "confidence": {"band": "HIGH", "fraction": 1.0, "present": 40, "reason": "`verifier_ids` present in 100% of decision_log records", "total": 40},
+      "count": 20,
+      "denominator": 20,
+      "second_actor_recorded": 20,
+      "measured_population": 20,
+      "unmeasured_count": 0,
+      "statement": "All 20 items that required two reviewers got them (100%)."
+    },
+    {
+      "metric": "inter_rater_reliability",
+      "label": "Inter-rater reliability",
+      "tool": "audit-consistency",
+      "value": "0.829",
+      "status": "evidenced",
+      "confidence": {"band": "HIGH", "fraction": 1.0, "present": 40, "reason": "`outcome` present in 100% of decision_log records", "total": 40},
+      "count": null,
+      "denominator": null,
+      "second_actor_recorded": null,
+      "measured_population": null,
+      "unmeasured_count": null,
+      "statement": "Reviewers who saw the same items agreed on nearly all of them."
+    },
+    {
+      "metric": "escape_rate",
+      "label": "Auto-approval escape rate",
+      "tool": "audit-sampling",
+      "value": "0%",
+      "status": "evidenced",
+      "confidence": {"band": "HIGH", "fraction": 1.0, "present": 29, "reason": "`downstream_outcome` present in 100% of dispositions records", "total": 29},
+      "count": 0,
+      "denominator": 29,
+      "second_actor_recorded": null,
+      "measured_population": null,
+      "unmeasured_count": null,
+      "statement": "0 of 29 auto-approved items later turned out to need a person."
+    }
+  ],
+  "findings": [
+    {"tool": "audit-oversight", "id": "F-0001", "code": "FAST_DECISIONS", "severity": "high_attention", "title": "Decisions below the minimum plausible review time", "detail": "2/40 decisions (0.050) were faster than min_decision_latency_minutes=2. Implausibly fast decisions are a weak-evidence SIGNAL that review may be nominal, not proof. Affected: DEC-0001, DEC-0008.", "recommendation": "", "plain_action": "2 decisions were made faster than your policy's minimum review time. Ask the reviewers whether those items were simple, or whether the review step is being skipped."},
+    {"tool": "audit-sampling", "id": "F-risky_bypass-ea96d0eec6497306", "code": "risky_bypass", "severity": "high_attention", "title": "Item TF-AUTO-RISK1 bypassed review but should not have", "detail": "TF-AUTO-RISK1 (content_flag) was auto-approved under AR-payment but: item_type 'content_flag' is not allowed by AR-payment.", "recommendation": "Route TF-AUTO-RISK1 for retrospective human review and tighten the bypass policy or rule that let it through.", "plain_action": "TF-AUTO-RISK1 was auto-approved even though your own rule required a person for it. Have someone review it now, and check why the rule let it through."}
+  ],
+  "frameworks": [
+    {
+      "framework": "NIST AI RMF",
+      "version": "AI RMF 1.0 (NIST AI 100-1)",
+      "authoritative": true,
+      "note": "NIST AI RMF references and outcomes are public domain (NIST AI 100-1); descriptions are accurate own-words paraphrases. Advisory mapping only, not a compliance determination and not legal advice.",
+      "entries": [
+        {"obligation_id": "govern_1_4_transparent_controls", "reference": "NIST AI RMF GOVERN 1.4", "description": "Establish the risk-management process and its outcomes through transparent, traceable controls.", "metrics": [], "status": "not_measured_by_this_tool", "note": "The obligation is to establish a risk-management process. This tool observes nothing about whether one exists: a tamper-evident packet is a traceable record of oversight outcomes, not of the process that governs them. Evidenced by the organization's own risk-management policies, procedures and controls."},
+        {"obligation_id": "govern_3_2_oversight_roles", "reference": "NIST AI RMF GOVERN 3.2", "description": "Define and differentiate the roles and responsibilities for human-AI configurations and oversight of the system.", "metrics": ["coverage", "two_person_coverage"], "status": "evidenced", "note": ""},
+        {"obligation_id": "govern_3_2_delegated_authority", "reference": "NIST AI RMF GOVERN 3.2", "description": "Write down which actions the system may take on its own, which need a person, and which it may never take.", "metrics": [], "status": "no_population_to_measure", "note": "TWO ROWS CITE GOVERN 3.2, FROM TWO KINDS OF EVIDENCE, and that is deliberate. The subcategory asks that roles and responsibilities for human-AI configurations be defined and differentiated. `govern_3_2_oversight_roles` reads the metrics: how much was overseen, and whether a second person signed off. This row reads the delegated-authority statement you supplied -- whether the actions in the run match what you said you delegated. Where you supplied no statement, this row reports no measurement rather than a gap, and nothing here assesses whether the delegation you wrote was appropriate.", "findings_block": "authority_handling"},
+        {"obligation_id": "measure_2_4_monitor_behavior", "reference": "NIST AI RMF MEASURE 2.4", "description": "Monitor the functionality and behavior of the system and its components when in production.", "metrics": ["override_rate", "intervention_rate", "edit_rate"], "status": "evidenced", "note": ""},
+        {"obligation_id": "manage_2_4_supersede_disengage", "reference": "NIST AI RMF MANAGE 2.4", "description": "Put mechanisms in place to supersede, disengage, or deactivate a system whose outcomes are inconsistent with its intended use.", "metrics": ["override_rate", "stop_rate", "intervention_rate"], "status": "evidenced", "note": ""},
+        {"obligation_id": "manage_4_1_post_deployment_monitoring", "reference": "NIST AI RMF MANAGE 4.1", "description": "Implement post-deployment monitoring, including mechanisms for appeal and override of automated decisions.", "metrics": [], "status": "not_measured_by_this_tool", "note": "The obligation is to implement post-deployment monitoring and mechanisms for appeal and override. Where appeal records are supplied, this tool measures how those recorded appeals were handled; it does not evidence that an appeal or override mechanism exists, and implementing one is an activity the organization performs rather than an artifact this packet holds. Evidenced by the organization's monitoring, appeal and override procedures."}
+      ]
+    },
+    {
+      "framework": "EU AI Act",
+      "version": "Regulation (EU) 2024/1689",
+      "authoritative": true,
+      "note": "Article references are public; descriptions are paraphrased, not the regulation text. Advisory mapping only, not a compliance determination and not legal advice.",
+      "entries": [
+        {"obligation_id": "art_11_technical_documentation", "reference": "EU AI Act Art. 11 + Annex IV", "description": "Show that a dated record of the oversight that ran exists and is complete.", "metrics": ["packet"], "status": "evidenced", "note": "ARTICLE 11 IS THE PROVIDER'S DUTY AND THIS PACKET IS NOT THAT DOCUMENT. The Article requires technical documentation drawn up BEFORE the system is placed on the market, carrying the Annex IV elements. What this row reads is the deployer's side: that a dated, hash-chained record of the oversight that ran exists. A reader who holds an Annex IV obligation needs the provider's documentation as well as this, and the reference is kept because that is where they will look."},
+        {"obligation_id": "art_12_record_keeping", "reference": "EU AI Act Art. 12", "description": "Automatically record events (logs) over the lifetime of the system for traceability.", "metrics": ["evidence_integrity"], "status": "evidenced", "note": "ARTICLE 12 IS THE PROVIDER'S DUTY: paragraph 1 requires the system to be built so that it technically allows the automatic recording of events. This row reads the integrity of the records the deployer holds, which is the same subject from the other side. The deployer's own duty to KEEP those records is Article 26(6), which has its own row in this table."},
+        {"obligation_id": "14_4_a_understanding", "reference": "EU AI Act Art. 14(4)(a)", "description": "Show that the people assigned to oversee the system monitored how it was operating, rather than taking its output as given.", "metrics": ["coverage"], "status": "evidenced", "note": "Article 14(4)(a) is addressed to the PROVIDER: the system must be provided to the deployer so that the persons given oversight are enabled to understand and monitor it. This row reads the deployer's side -- what those persons did with what it produced -- and not whether the provider's enabling was adequate."},
+        {"obligation_id": "14_4_b_automation_bias", "reference": "EU AI Act Art. 14(4)(b)", "description": "Show that those people did not simply go along with the system, by reading where they changed or stopped what it proposed.", "metrics": ["override_rate", "intervention_rate"], "status": "evidenced", "note": "Article 14(4)(b) is addressed to the PROVIDER, in the same construction as the rest of 14(4). Automation bias is a state of mind and no record measures it directly; what this row reads is the deployer's side -- whether outputs were changed and intervened in at all, rather than passed through."},
+        {"obligation_id": "14_4_c_interpretation", "reference": "EU AI Act Art. 14(4)(c)", "description": "Show that they read the output closely enough to act on it, by reading the changes they made to what it proposed.", "metrics": ["edit_rate"], "status": "evidenced", "note": "Article 14(4)(c) is addressed to the PROVIDER, which must supply the system so that its output can be correctly interpreted. An edit is evidence that someone engaged with the output; it is not evidence that their interpretation was correct, and no record in this packet speaks to correctness."},
+        {"obligation_id": "14_4_d_override_disregard", "reference": "EU AI Act Art. 14(4)(d)", "description": "Show that they disregarded, overrode or reversed the output where they judged they should.", "metrics": ["override_rate", "stop_rate"], "status": "evidenced", "note": "Article 14(4)(d) is addressed to the PROVIDER: the ability to disregard or override must be provided with the system. This row reads the deployer's side -- that the ability was exercised. A rate of zero is not proof the ability is missing, and a high rate is not proof it is working."},
+        {"obligation_id": "14_4_e_intervene_stop", "reference": "EU AI Act Art. 14(4)(e)", "description": "Show that they stepped in or halted the system where they judged they should.", "metrics": ["stop_rate", "intervention_rate"], "status": "evidenced", "note": "Article 14(4)(e) is addressed to the PROVIDER, which must supply the stop function or an equivalent procedure. This row reads the deployer's side -- that a stop was invoked -- and says nothing about whether the system comes to a halt in a safe state, which is the part of the sub-point only the provider can evidence."},
+        {"obligation_id": "14_5_two_person", "reference": "EU AI Act Art. 14(5)", "description": "For certain high-risk uses, require confirmation by at least two competent persons.", "metrics": ["two_person_coverage"], "status": "evidenced", "note": "SCOPED TO ONE ANNEX III CATEGORY, which 'certain high-risk uses' does not say. Article 14(5) applies to the high-risk systems in point 1(a) of Annex III -- remote biometric identification -- and its second subparagraph removes even that where Union or national law treats the requirement as disproportionate for law enforcement, migration, border control or asylum. Outside that category this reading may still be one your own policy asks for, but the Article does not."},
+        {"obligation_id": "art_26_6_deployer_keeps_logs", "reference": "EU AI Act Art. 26(6)", "description": "Keep the logs the system generated, under your control and intact, for as long as the use requires.", "metrics": ["evidence_integrity", "packet"], "status": "evidenced", "note": "THE PACKET SPEAKS TO THE RECORDS, NOT TO HOW LONG THEY ARE KEPT. This row reads that the logs behind this run are held and intact as of the snapshot's anchor. Nothing in the packet speaks to the six-month minimum or to any retention period at all: a run is one moment, and retention is a property of your storage over time. Article 26(6) is the deployer's duty, which is why it is a row of its own rather than a note on Article 12."}
+      ]
+    },
+    {
+      "framework": "CCPA ADMT",
+      "version": "CCPA ADMT regulations (version unsourced)",
+      "authoritative": true,
+      "note": "Requirements are stated as docs/ccpa_admt_crosswalk.md states them; references are narrative rather than section citations, because that document carries none. Descriptions are own-words paraphrases. Advisory mapping only, not a compliance determination and not legal advice.",
+      "entries": [
+        {"obligation_id": "reviewer_can_interpret_output", "reference": "CCPA ADMT definition § 7001(e)(1)(A): the reviewer knows how to interpret and use the output", "description": "Show that reviewers engage with the output rather than passing it through untouched.", "metrics": ["intervention_rate", "edit_rate"], "status": "evidenced", "note": "THIS AND THE TWO ROWS BELOW CITE THE DEFINITION, NOT AN EXCEPTION. The three requirements they read -- interpret, review, authority -- are the elements of 'human involvement' in the definition of ADMT at section 7001(e)(1), so they decide whether a use is in this Article's scope at all. The appeal exception at section 7221(b)(1) is a different provision with a different consequence, and these rows do not read it."},
+        {"obligation_id": "reviewer_actually_reviews", "reference": "CCPA ADMT definition § 7001(e)(1)(B): the reviewer reviews and analyzes the output", "description": "Show that review happens across the decisions it is claimed for, not selectively.", "metrics": ["coverage"], "status": "evidenced", "note": ""},
+        {"obligation_id": "reviewer_authority_to_overturn", "reference": "CCPA ADMT definition § 7001(e)(1)(C): the reviewer has authority to make or change the decision", "description": "Show that reviewers can change or stop a decision, and that they do so in practice.", "metrics": ["override_rate", "intervention_rate", "stop_rate"], "status": "evidenced", "note": ""},
+        {"obligation_id": "not_substantially_replacing_humans", "reference": "CCPA ADMT opt-out trigger: the system replaces or substantially replaces human decision-making", "description": "Show the combined picture a reviewer-led process leaves: decisions covered, and overturning and intervention occurring rather than structurally absent.", "metrics": ["coverage", "override_rate", "intervention_rate", "escape_rate"], "status": "evidenced", "note": "`escape_rate` IS HERE BECAUSE THE DEFINITION TURNS ON THE UNGATED SIDE. Section 7001(e)(1) defines substantially replacing human decisionmaking as using the output to make a decision WITHOUT human involvement, so what was decided with nobody involved bears on this obligation as directly as what was covered."},
+        {"obligation_id": "risk_assessment_human_oversight_part", "reference": "CCPA ADMT risk assessment for significant-decision uses", "description": "Conduct a risk assessment for uses that make significant decisions, of which human oversight is one part rather than the whole.", "metrics": [], "status": "not_measured_by_this_tool", "note": "The obligation is to conduct a risk assessment. This tool produces one input to the human-oversight portion of it, and holding that input is not having conducted the assessment. Evidenced by the completed risk assessment itself."}
+      ]
+    }
+  ],
+  "roadmap": [
+    {"priority": "P2", "area": "audit-oversight", "gap": "Decisions below the minimum plausible review time", "plain_action": "2 decisions were made faster than your policy's minimum review time. Ask the reviewers whether those items were simple, or whether the review step is being skipped.", "technical": "", "owner_role": "AI governance owner"},
+    {"priority": "P2", "area": "audit-sampling", "gap": "Item TF-AUTO-RISK1 bypassed review but should not have", "plain_action": "TF-AUTO-RISK1 was auto-approved even though your own rule required a person for it. Have someone review it now, and check why the rule let it through.", "technical": "Route TF-AUTO-RISK1 for retrospective human review and tighten the bypass policy or rule that let it through.", "owner_role": "Trust & safety owner"}
+  ],
+  "appendix": {
+    "tool_outputs": {"audit-consistency": "audit-consistency/", "audit-oversight": "audit-oversight/", "audit-sampling": "audit-sampling/"},
+    "integrity_manifest": "integrity_manifest.json"
+  },
+  "floors": [
+    {"metric": "coverage", "floor": "coverage_target", "label": "Coverage target", "value": 1.0, "unit": "share", "separates": "fully evidenced from partially evidenced", "phrase": "the share of in-scope decisions your policy expects a person to have reviewed", "source": "your policy"},
+    {"metric": "coverage", "floor": "partial_coverage", "label": "Partial-coverage floor", "value": 0.5, "unit": "share", "separates": "partially evidenced from under floor", "phrase": "below this share of your decisions reviewed, coverage counts as under floor", "source": "this tool's default"},
+    {"metric": "two_person_coverage", "floor": "min_verifiers", "label": "Minimum verifiers", "value": 2, "unit": "people", "separates": "items that needed two approvers from items that did not", "phrase": "how many people your policy requires on an item in a two-person category", "source": "your policy"},
+    {"metric": "inter_rater_reliability", "floor": "min_overlap", "label": "Minimum overlap", "value": 2, "unit": "people", "separates": "measurable from too sparse to measure", "phrase": "how many reviewers must both have seen an item before agreement can be measured on it", "source": "your policy"},
+    {"metric": "inter_rater_reliability", "floor": "agreement_moderate", "label": "Agreement floor", "value": 0.4, "unit": "coefficient", "separates": "partially evidenced from under floor", "phrase": "below this, reviewers agree too little for the review to evidence much", "source": "this tool's default"},
+    {"metric": "inter_rater_reliability", "floor": "agreement_substantial", "label": "Agreement, fully evidenced", "value": 0.6, "unit": "coefficient", "separates": "fully evidenced from partially evidenced", "phrase": "at or above this, reviewers agree enough to evidence a consistent review", "source": "this tool's default"},
+    {"metric": "escape_rate", "floor": "max_escape_rate", "label": "Maximum escape rate", "value": 0.1, "unit": "share", "separates": "fully evidenced from partially evidenced", "phrase": "the share of auto-approved items your policy accepts turning out to need a person", "source": "your policy"},
+    {"metric": "escape_rate", "floor": "escape_elevated_multiple", "label": "Escape-rate multiple", "value": 2.0, "unit": "multiple", "separates": "partially evidenced from under floor", "phrase": "how many times your maximum the rate may reach before it counts as under floor", "source": "this tool's default"},
+    {"metric": "override_rate", "floor": "partial_presence", "label": "Partial-evidence floor", "value": 0.05, "unit": "share", "separates": "partially evidenced from fully evidenced", "phrase": "below this share, the behavior shows up too rarely to evidence much", "source": "this tool's default"},
+    {"metric": "edit_rate", "floor": "partial_presence", "label": "Partial-evidence floor", "value": 0.05, "unit": "share", "separates": "partially evidenced from fully evidenced", "phrase": "below this share, the behavior shows up too rarely to evidence much", "source": "this tool's default"},
+    {"metric": "stop_rate", "floor": "partial_presence", "label": "Partial-evidence floor", "value": 0.05, "unit": "share", "separates": "partially evidenced from fully evidenced", "phrase": "below this share, the behavior shows up too rarely to evidence much", "source": "this tool's default"},
+    {"metric": "intervention_rate", "floor": "partial_presence", "label": "Partial-evidence floor", "value": 0.05, "unit": "share", "separates": "partially evidenced from fully evidenced", "phrase": "below this share, the behavior shows up too rarely to evidence much", "source": "this tool's default"}
+  ],
+  "appeal_handling": {
+    "schema_version": "1.0",
+    "min_resolved_appeals": 5,
+    "resolution_floor_minutes": 5.0,
+    "fast_share_signal": 0.5,
+    "repeated_digest_share_signal": 0.5,
+    "grant_share_low": 0.0,
+    "absent_rationale_share_signal": 0.5,
+    "signals_for_finding": 2,
+    "flagged": true,
+    "profile": {
+      "n_appeals": 8,
+      "n_resolved": 8,
+      "n_with_decision": 8,
+      "n_without_decision": 0,
+      "n_resolution_times": 8,
+      "n_with_rationale": 7,
+      "n_distinct_rationales": 3,
+      "n_granted": 2,
+      "grant_share": 0.25,
+      "repeated_rationale_share": 0.571429,
+      "absent_rationale_share": 0.125,
+      "resolution_times": {"min": 1.0, "median": 3.5, "mean": 3186.0, "max": 10245.0, "share_below_floor": 0.625},
+      "signals": {"resolution_times_fast": true, "rationale_digests_repeat": true, "grant_share_low": false, "rationale_absent_often": false},
+      "signals_met": 2,
+      "eligible": true,
+      "flagged": true
+    },
+    "status": "review_recommended",
+    "findings": [
+      {
+        "finding_id": "FND-GEN-a558260153",
+        "family": "appeal_handling",
+        "severity": "review_recommended",
+        "subject_kind": "cohort",
+        "subject_id": "appeal_handling",
+        "title": "Appeal-handling signal pattern",
+        "summary": "8 of 8 appeals were resolved and tripped 2 of 4 appeal-handling thresholds (resolution_times_fast, rationale_digests_repeat). Median resolution 3.5 minutes, 25% granted, 12% with no rationale recorded. This is a statistical signal about the records supplied, warranting review. It is not evidence that any appeal went unread or unconsidered.",
+        "metrics": {"n_appeals": 8, "n_resolved": 8, "grant_share": 0.25, "repeated_rationale_share": 0.571429, "absent_rationale_share": 0.125, "signals_met": 2},
+        "evidence": {
+          "signals": {"resolution_times_fast": true, "rationale_digests_repeat": true, "grant_share_low": false, "rationale_absent_often": false},
+          "resolution_times": {"min": 1.0, "median": 3.5, "mean": 3186.0, "max": 10245.0, "share_below_floor": 0.625},
+          "min_resolved_appeals": 5,
+          "resolution_floor_minutes": 5.0
+        },
+        "recommendation": "Review a sample of these appeals with the accountable owner to establish whether the pattern reflects a class of appeals that genuinely warrant one answer, or a handling process that needs attention."
+      }
+    ]
+  },
+  "optout_handling": {
+    "schema_version": "1.0",
+    "min_optouts": 5,
+    "unrecorded_share_signal": 0.5,
+    "flagged": true,
+    "profile": {
+      "n_optouts": 8,
+      "n_stop_recorded": 3,
+      "n_unrecorded": 5,
+      "recorded_share": 0.375,
+      "unrecorded_share": 0.625,
+      "n_elapsed_days": 3,
+      "elapsed_calendar_days": {"minimum": 2, "median": 5.0, "mean": 5.333333, "maximum": 9},
+      "observations": [
+        {"optout_id": "OPT-2026-0001", "stop_recorded": true, "elapsed_calendar_days": 2},
+        {"optout_id": "OPT-2026-0002", "stop_recorded": true, "elapsed_calendar_days": 5},
+        {"optout_id": "OPT-2026-0003", "stop_recorded": true, "elapsed_calendar_days": 9},
+        {"optout_id": "OPT-2026-0004", "stop_recorded": false},
+        {"optout_id": "OPT-2026-0005", "stop_recorded": false},
+        {"optout_id": "OPT-2026-0006", "stop_recorded": false},
+        {"optout_id": "OPT-2026-0007", "stop_recorded": false},
+        {"optout_id": "OPT-2026-0008", "stop_recorded": false}
+      ],
+      "eligible": true,
+      "flagged": true
+    },
+    "status": "review_recommended",
+    "findings": [
+      {
+        "finding_id": "FND-GEN-486654ab8b",
+        "family": "optout_handling",
+        "severity": "review_recommended",
+        "subject_kind": "cohort",
+        "subject_id": "optout_handling",
+        "title": "Opt-out records with no recorded stop",
+        "summary": "5 of 8 opt-out requests in these records carry no stop recorded against them (62%). Where one was recorded, the median elapsed figure is 5 calendar days. This is a count of what the supplied records contain, warranting review. It is not evidence that any request went unhonored, and the elapsed figures are calendar days rather than the business days the obligation is written in.",
+        "metrics": {"n_optouts": 8, "n_stop_recorded": 3, "n_unrecorded": 5, "unrecorded_share": 0.625, "n_elapsed_days": 3},
+        "evidence": {
+          "elapsed_calendar_days": {"minimum": 2, "median": 5.0, "mean": 5.333333, "maximum": 9},
+          "min_optouts": 5,
+          "unrecorded_share_signal": 0.5,
+          "elapsed_unit": "calendar_days"
+        },
+        "recommendation": "Read these records beside your own request log with the accountable owner to establish whether a stop was recorded elsewhere, recorded late, or not recorded. This tool reads only what the supplied file contains."
+      }
+    ]
+  }
+}

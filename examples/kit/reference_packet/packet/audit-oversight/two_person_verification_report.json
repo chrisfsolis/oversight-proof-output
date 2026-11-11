@@ -1,0 +1,315 @@
+{
+  "applies_to_risk_categories": [
+    "credit_decision"
+  ],
+  "covered_count": 20,
+  "items": [
+    {
+      "item_id": "TF-01",
+      "item_type": "loan_origination",
+      "min_verifiers": 2,
+      "qualified_verifiers": [
+        "v_dana",
+        "v_eve"
+      ],
+      "satisfied": true,
+      "verifiers_present": [
+        "v_dana",
+        "v_eve"
+      ]
+    },
+    {
+      "item_id": "TF-02",
+      "item_type": "loan_origination",
+      "min_verifiers": 2,
+      "qualified_verifiers": [
+        "v_dana",
+        "v_eve"
+      ],
+      "satisfied": true,
+      "verifiers_present": [
+        "v_dana",
+        "v_eve"
+      ]
+    },
+    {
+      "item_id": "TF-03",
+      "item_type": "loan_origination",
+      "min_verifiers": 2,
+      "qualified_verifiers": [
+        "v_dana",
+        "v_eve"
+      ],
+      "satisfied": true,
+      "verifiers_present": [
+        "v_dana",
+        "v_eve"
+      ]
+    },
+    {
+      "item_id": "TF-04",
+      "item_type": "loan_origination",
+      "min_verifiers": 2,
+      "qualified_verifiers": [
+        "v_dana",
+        "v_eve"
+      ],
+      "satisfied": true,
+      "verifiers_present": [
+        "v_dana",
+        "v_eve"
+      ]
+    },
+    {
+      "item_id": "TF-05",
+      "item_type": "loan_origination",
+      "min_verifiers": 2,
+      "qualified_verifiers": [
+        "v_dana",
+        "v_eve"
+      ],
+      "satisfied": true,
+      "verifiers_present": [
+        "v_dana",
+        "v_eve"
+      ]
+    },
+    {
+      "item_id": "TF-06",
+      "item_type": "loan_origination",
+      "min_verifiers": 2,
+      "qualified_verifiers": [
+        "v_dana",
+        "v_eve"
+      ],
+      "satisfied": true,
+      "verifiers_present": [
+        "v_dana",
+        "v_eve"
+      ]
+    },
+    {
+      "item_id": "TF-07",
+      "item_type": "loan_origination",
+      "min_verifiers": 2,
+      "qualified_verifiers": [
+        "v_dana",
+        "v_eve"
+      ],
+      "satisfied": true,
+      "verifiers_present": [
+        "v_dana",
+        "v_eve"
+      ]
+    },
+    {
+      "item_id": "TF-08",
+      "item_type": "loan_origination",
+      "min_verifiers": 2,
+      "qualified_verifiers": [
+        "v_dana",
+        "v_eve"
+      ],
+      "satisfied": true,
+      "verifiers_present": [
+        "v_dana",
+        "v_eve"
+      ]
+    },
+    {
+      "item_id": "TF-09",
+      "item_type": "loan_origination",
+      "min_verifiers": 2,
+      "qualified_verifiers": [
+        "v_dana",
+        "v_eve"
+      ],
+      "satisfied": true,
+      "verifiers_present": [
+        "v_dana",
+        "v_eve"
+      ]
+    },
+    {
+      "item_id": "TF-10",
+      "item_type": "loan_origination",
+      "min_verifiers": 2,
+      "qualified_verifiers": [
+        "v_dana",
+        "v_eve"
+      ],
+      "satisfied": true,
+      "verifiers_present": [
+        "v_dana",
+        "v_eve"
+      ]
+    },
+    {
+      "item_id": "TF-11",
+      "item_type": "loan_restructure",
+      "min_verifiers": 2,
+      "qualified_verifiers": [
+        "v_dana",
+        "v_eve"
+      ],
+      "satisfied": true,
+      "verifiers_present": [
+        "v_dana",
+        "v_eve"
+      ]
+    },
+    {
+      "item_id": "TF-12",
+      "item_type": "loan_restructure",
+      "min_verifiers": 2,
+      "qualified_verifiers": [
+        "v_dana",
+        "v_eve"
+      ],
+      "satisfied": true,
+      "verifiers_present": [
+        "v_dana",
+        "v_eve"
+      ]
+    },
+    {
+      "item_id": "TF-13",
+      "item_type": "loan_restructure",
+      "min_verifiers": 2,
+      "qualified_verifiers": [
+        "v_dana",
+        "v_eve"
+      ],
+      "satisfied": true,
+      "verifiers_present": [
+        "v_dana",
+        "v_eve"
+      ]
+    },
+    {
+      "item_id": "TF-14",
+      "item_type": "loan_restructure",
+      "min_verifiers": 2,
+      "qualified_verifiers": [
+        "v_dana",
+        "v_eve"
+      ],
+      "satisfied": true,
+      "verifiers_present": [
+        "v_dana",
+        "v_eve"
+      ]
+    },
+    {
+      "item_id": "TF-15",
+      "item_type": "loan_restructure",
+      "min_verifiers": 2,
+      "qualified_verifiers": [
+        "v_dana",
+        "v_eve"
+      ],
+      "satisfied": true,
+      "verifiers_present": [
+        "v_dana",
+        "v_eve"
+      ]
+    },
+    {
+      "item_id": "TF-16",
+      "item_type": "loan_restructure",
+      "min_verifiers": 2,
+      "qualified_verifiers": [
+        "v_dana",
+        "v_eve"
+      ],
+      "satisfied": true,
+      "verifiers_present": [
+        "v_dana",
+        "v_eve"
+      ]
+    },
+    {
+      "item_id": "TF-17",
+      "item_type": "loan_exception",
+      "min_verifiers": 2,
+      "qualified_verifiers": [
+        "v_dana",
+        "v_eve"
+      ],
+      "satisfied": true,
+      "verifiers_present": [
+        "v_dana",
+        "v_eve"
+      ]
+    },
+    {
+      "item_id": "TF-18",
+      "item_type": "loan_exception",
+      "min_verifiers": 2,
+      "qualified_verifiers": [
+        "v_dana",
+        "v_eve"
+      ],
+      "satisfied": true,
+      "verifiers_present": [
+        "v_dana",
+        "v_eve"
+      ]
+    },
+    {
+      "item_id": "TF-19",
+      "item_type": "loan_appeal",
+      "min_verifiers": 2,
+      "qualified_verifiers": [
+        "v_dana",
+        "v_eve"
+      ],
+      "satisfied": true,
+      "verifiers_present": [
+        "v_dana",
+        "v_eve"
+      ]
+    },
+    {
+      "item_id": "TF-20",
+      "item_type": "loan_appeal",
+      "min_verifiers": 2,
+      "qualified_verifiers": [
+        "v_dana",
+        "v_eve"
+      ],
+      "satisfied": true,
+      "verifiers_present": [
+        "v_dana",
+        "v_eve"
+      ]
+    }
+  ],
+  "metric": "two_person_coverage",
+  "min_verifiers": 2,
+  "status": "evidenced",
+  "triggered_count": 20,
+  "triggered_item_ids": [
+    "TF-01",
+    "TF-02",
+    "TF-03",
+    "TF-04",
+    "TF-05",
+    "TF-06",
+    "TF-07",
+    "TF-08",
+    "TF-09",
+    "TF-10",
+    "TF-11",
+    "TF-12",
+    "TF-13",
+    "TF-14",
+    "TF-15",
+    "TF-16",
+    "TF-17",
+    "TF-18",
+    "TF-19",
+    "TF-20"
+  ],
+  "two_person_coverage": 1.0
+}

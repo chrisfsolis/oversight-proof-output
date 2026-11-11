@@ -1,0 +1,34 @@
+{
+  "as_of": "2026-05-20T00:00:00+00:00",
+  "disclaimer": "Advisory statistical signals, not conclusive proof of motive or fault. Not a performance-management or disciplinary instrument; the accountable governance owner remains the source of truth.",
+  "flagged_count": 0,
+  "min_decisions": 20,
+  "peer_mean_residual": -0.0,
+  "peer_sd_residual": 0.070711,
+  "report": "reviewer_calibration_report",
+  "reviewers": [
+    {
+      "approval_rate": 0.6,
+      "direction": "typical",
+      "eligible": true,
+      "expected_approval_rate": 0.55,
+      "flagged": false,
+      "n_decisions": 20,
+      "residual": 0.05,
+      "reviewer_id": "r_alex",
+      "z": null
+    },
+    {
+      "approval_rate": 0.5,
+      "direction": "typical",
+      "eligible": true,
+      "expected_approval_rate": 0.55,
+      "flagged": false,
+      "n_decisions": 20,
+      "residual": -0.05,
+      "reviewer_id": "r_blake",
+      "z": null
+    }
+  ],
+  "z_threshold": 2.0
+}

@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "oversightproof:receipt.schema.json",
+  "$comment": "SPDX-License-Identifier: Apache-2.0. Copyright (c) 2026 Oversight Proof LLC. Licensed under the Apache License, Version 2.0; see LICENSE-APACHE.txt. This format may be implemented freely by any party.",
+  "title": "OversightProof oversight receipt",
+  "description": "Offline-verifiable anchor of the existence, time, and immutability of an evidence dossier. Advisory evidence, not legal advice and not a compliance determination.",
+  "type": "object",
+  "required": ["schema_version", "commitment", "metadata", "anchors", "claims"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"const": "oversight-receipt-v1"},
+    "commitment": {
+      "type": "object",
+      "description": "The salted commitment to the dossier root. The raw root and the salt stay local and never appear here.",
+      "required": ["algorithm", "salted_root_hex", "dossier_root_alg"],
+      "additionalProperties": false,
+      "properties": {
+        "algorithm": {"const": "hmac-sha256"},
+        "salted_root_hex": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "dossier_root_alg": {"const": "sha256"}
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Allowlisted, non-PII metadata only. No decision data, reviewer identities, or review content.",
+      "additionalProperties": false,
+      "properties": {
+        "receipt_schema_version": {"type": "string"},
+        "engine_version": {"type": "string"},
+        "manifest_schema_version": {"type": "string"},
+        "dossier_record_count": {"type": "integer", "minimum": 0},
+        "as_of": {"type": "string"},
+        "run_id": {"type": "string"}
+      }
+    },
+    "anchors": {
+      "type": "array",
+      "description": "One or more independent anchor proofs over the salted commitment (multi-anchor, no sole authority).",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["type", "proof_file", "imprint_alg"],
+        "additionalProperties": true,
+        "properties": {
+          "type": {"enum": ["rfc3161", "opentimestamps", "scitt"]},
+          "proof_file": {"type": "string"},
+          "imprint_alg": {"const": "sha256"},
+          "block_headers_file": {"type": "string"},
+          "signed_statement_file": {"type": "string"},
+          "issuer_key_file": {"type": "string"},
+          "service_key_file": {"type": "string"}
+        }
+      }
+    },
+    "claims": {
+      "type": "string",
+      "description": "The advisory statement embedded verbatim in every receipt (not legal advice and not a compliance determination)."
+    },
+    "produced_by": {"type": "string"}
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "as_of": "2026-05-20T00:00:00+00:00",
+  "disclaimer": "Advisory statistical signals, not conclusive proof of motive or fault. Not a performance-management or disciplinary instrument; the accountable governance owner remains the source of truth.",
+  "lever_count": 1,
+  "levers": [
+    {
+      "after": 0.55,
+      "before": 0.55,
+      "delta": 0.0,
+      "description": "Cohort approval rate computed over only the most recent window (w5, n=40).",
+      "lever": "restrict_recent_window",
+      "metric": "cohort_approval_rate",
+      "target": "w5"
+    }
+  ],
+  "report": "whatif_recommendations"
+}

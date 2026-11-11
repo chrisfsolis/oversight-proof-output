@@ -1,0 +1,18 @@
+{
+  "anchor_proof_paths": [
+    "examples/receipt/anchors/anchor_a.ots",
+    "examples/receipt/anchors/anchor_b.ots"
+  ],
+  "block_headers_path": "examples/receipt/anchors/anchor_headers.json",
+  "claims": "This oversight receipt attests the existence, time, and immutability of an OversightProof evidence dossier: that a dossier committing to this salted root existed no later than the anchored time and has not changed since. It does not attest that the underlying human review was meaningful, that the inputs were truthful or complete, or that any legal or regulatory obligation is met. It is advisory evidence for an accountable human owner, not legal advice and not a compliance determination.",
+  "data_classification": {
+    "category": "salted commitment, allowlisted non-PII metadata, offline anchor proofs",
+    "synthetic_data_statement": "The dossier root and salt are synthetic and local only. It is not customer data and contains no decision data, reviewer identities, or PII; only the salted commitment and allowlisted metadata are published."
+  },
+  "local_witness_path": "examples/receipt/local_witness.json",
+  "name": "Example oversight receipt (synthetic, two OpenTimestamps anchors)",
+  "receipt_path": "examples/receipt/receipt.json",
+  "regeneration_command": "python scripts/build_receipt_example.py",
+  "schema_version": "oversight-receipt-example-v1",
+  "verification_command": "python scripts/verify_receipt.py examples/receipt"
+}

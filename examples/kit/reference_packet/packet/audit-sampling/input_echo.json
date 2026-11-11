@@ -1,0 +1,85 @@
+{
+  "as_of": "2026-05-20T00:00:00Z",
+  "auto_approval_rules": [
+    {
+      "allows": {
+        "allowed_risk_categories": [],
+        "item_types": [
+          "content_flag"
+        ],
+        "max_revenue_impact_band": "low",
+        "max_value_band": "medium"
+      },
+      "description": "Auto-approve low/medium-value content flags.",
+      "rule_id": "AR-content"
+    },
+    {
+      "allows": {
+        "allowed_risk_categories": [],
+        "item_types": [
+          "payment_hold"
+        ],
+        "max_revenue_impact_band": "low",
+        "max_value_band": "medium"
+      },
+      "description": "Auto-approve low-value payment holds.",
+      "rule_id": "AR-payment"
+    },
+    {
+      "allows": {
+        "allowed_risk_categories": [
+          "billing"
+        ],
+        "item_types": [
+          "account_appeal"
+        ],
+        "max_revenue_impact_band": "medium",
+        "max_value_band": "medium"
+      },
+      "description": "Auto-approve routine account appeals.",
+      "rule_id": "AR-appeal"
+    }
+  ],
+  "bypass_policy": {
+    "ineligible_if": {
+      "external_commitment_risk_true": true,
+      "revenue_impact_at_or_above": "strategic",
+      "risk_categories": [
+        "legal",
+        "biometric"
+      ],
+      "value_band_at_or_above": "high"
+    }
+  },
+  "counts": {
+    "auto_approved": 29,
+    "dispositions": 29,
+    "review_items": 49
+  },
+  "disclaimer": "Advisory only. Accountable owners remain the source of truth for auto-approval policy and outcomes. This audit sample supports retrospective human spot-check; it does not certify the whole population, and escapes are a lagging signal. All data is synthetic.",
+  "escape_policy": {
+    "escape_outcomes": [
+      "corrected",
+      "escalated",
+      "complaint",
+      "defect"
+    ],
+    "fail_threshold": {
+      "high_attention_count": 5
+    },
+    "max_escape_rate": 0.1,
+    "min_segment_size": 10
+  },
+  "report": "input_echo",
+  "sampling_policy": {
+    "confidence": 0.95,
+    "margin_of_error": 0.1,
+    "method": "systematic",
+    "min_sample": 5,
+    "stratify_by": [
+      "item_type"
+    ]
+  },
+  "scenario": "Consumer lending - loan application review",
+  "schema_version": "1.0.0"
+}

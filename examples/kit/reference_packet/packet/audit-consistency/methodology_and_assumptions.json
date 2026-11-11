@@ -1,0 +1,49 @@
+{
+  "as_of": "2026-05-20T00:00:00+00:00",
+  "citations": [
+    "Cohen 1960",
+    "Fleiss 1971",
+    "Krippendorff 2011",
+    "Gwet 2008",
+    "Landis & Koch 1977",
+    "Mann 1945",
+    "Kendall 1975"
+  ],
+  "deterministic": true,
+  "disclaimer": "Advisory statistical signals, not conclusive proof of motive or fault. Not a performance-management or disciplinary instrument; the accountable governance owner remains the source of truth.",
+  "estimators": [
+    "percent_agreement",
+    "cohen_kappa",
+    "fleiss_kappa",
+    "krippendorff_alpha",
+    "gwet_ac1",
+    "mann_kendall",
+    "linear_slope",
+    "cohort_zscore"
+  ],
+  "interpretation_bands": {
+    "almost_perfect": [
+      0.8,
+      1.01
+    ],
+    "fair": [
+      0.2,
+      0.4
+    ],
+    "moderate": [
+      0.4,
+      0.6
+    ],
+    "slight": [
+      0.0,
+      0.2
+    ],
+    "substantial": [
+      0.6,
+      0.8
+    ]
+  },
+  "report": "methodology_and_assumptions",
+  "uses_resampling": false,
+  "uses_rng": false
+}

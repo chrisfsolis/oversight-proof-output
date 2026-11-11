@@ -1,0 +1,17 @@
+{
+  "disclaimer": "Advisory only. Accountable owners remain the source of truth for auto-approval policy and outcomes. This audit sample supports retrospective human spot-check; it does not certify the whole population, and escapes are a lagging signal. All data is synthetic.",
+  "levers": [
+    {
+      "after_escapes": 0,
+      "after_risky": 0,
+      "before_escapes": 0,
+      "before_risky": 1,
+      "escapes_prevented": 0,
+      "lever": "remove_risky_bypasses",
+      "rationale": "1 auto-approved items were policy-ineligible; stop auto-approving them so they go to human review.",
+      "risky_removed": 1,
+      "target": "bypass_policy.ineligible_if"
+    }
+  ],
+  "report": "whatif_recommendations"
+}

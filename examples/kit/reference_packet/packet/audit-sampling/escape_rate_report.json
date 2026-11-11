@@ -1,0 +1,82 @@
+{
+  "disclaimer": "Advisory only. Accountable owners remain the source of truth for auto-approval policy and outcomes. This audit sample supports retrospective human spot-check; it does not certify the whole population, and escapes are a lagging signal. All data is synthetic.",
+  "max_escape_rate": 0.1,
+  "overall": {
+    "ci_high": 0.11697,
+    "ci_low": 0.0,
+    "escapes": 0,
+    "key": "overall",
+    "label": "All auto-approved items",
+    "population": 29,
+    "rate": 0.0
+  },
+  "per_rule": [
+    {
+      "ci_high": 0.390334,
+      "ci_low": 0.0,
+      "escapes": 0,
+      "key": "AR-appeal",
+      "label": "Rule AR-appeal",
+      "population": 6,
+      "rate": 0.0
+    },
+    {
+      "ci_high": 0.242494,
+      "ci_low": 0.0,
+      "escapes": 0,
+      "key": "AR-content",
+      "label": "Rule AR-content",
+      "population": 12,
+      "rate": 0.0
+    },
+    {
+      "ci_high": 0.258833,
+      "ci_low": 0.0,
+      "escapes": 0,
+      "key": "AR-payment",
+      "label": "Rule AR-payment",
+      "population": 11,
+      "rate": 0.0
+    }
+  ],
+  "per_window": [
+    {
+      "ci_high": 0.793451,
+      "ci_low": 0.0,
+      "escapes": 0,
+      "key": "W-2",
+      "label": "2026-04-29..2026-05-06",
+      "population": 1,
+      "rate": 0.0
+    },
+    {
+      "ci_high": 0.65762,
+      "ci_low": 0.0,
+      "escapes": 0,
+      "key": "W-9",
+      "label": "2026-03-11..2026-03-18",
+      "population": 2,
+      "rate": 0.0
+    },
+    {
+      "ci_high": 0.184318,
+      "ci_low": 0.0,
+      "escapes": 0,
+      "key": "W-10",
+      "label": "2026-03-04..2026-03-11",
+      "population": 17,
+      "rate": 0.0
+    },
+    {
+      "ci_high": 0.299145,
+      "ci_low": 0.0,
+      "escapes": 0,
+      "key": "W-11",
+      "label": "2026-02-25..2026-03-04",
+      "population": 9,
+      "rate": 0.0
+    }
+  ],
+  "report": "escape_rate_report",
+  "status": "evidenced"
+}

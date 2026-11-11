@@ -1,0 +1,251 @@
+{
+  "as_of": "2026-05-20T00:00:00Z",
+  "genesis": "fe5644cfa7cc7d9d8a75caa6e104e83ad560ad99ada403ca33756fd45fda094a",
+  "record_count": 40,
+  "records": [
+    {
+      "content_hash": "e5fd0ba80f6186297a177744520d7d37ed4c7c146d1a116d85645547959cf5c4",
+      "index": 0,
+      "link_hash": "af3e8018cf9e717045558fe04b8a87d9f461f51d5148fd2ee4560dc96528575f",
+      "record_id": "DEC-0009"
+    },
+    {
+      "content_hash": "1b0098c7593739572997c9e9d102911ca46b2937d269bc10e120e1ac40db2a84",
+      "index": 1,
+      "link_hash": "00a4375509a3a65aa86e7745aadb263989eb0be03d3693192f6eb49293d7e91d",
+      "record_id": "DEC-0027"
+    },
+    {
+      "content_hash": "5125a0946a9c906100d15bea79e1e986c573b3575058bf02332af3ff5f9697dc",
+      "index": 2,
+      "link_hash": "1d3859cc35f626856be6bd90504579646dfd04376e3cbe55bb5117bec8d91fb1",
+      "record_id": "DEC-0001"
+    },
+    {
+      "content_hash": "9156927b83a93b32206f2df5530ea2dc77eb1efdd30b09ed635e043c7c3d133f",
+      "index": 3,
+      "link_hash": "9c0f4470100441f21c4246f641a170dbc980e33a3b4399193a0a4304229b3dea",
+      "record_id": "DEC-0019"
+    },
+    {
+      "content_hash": "6c1d40145a350e42252d0580014cf7c0b4316a3fdc13167f36a92879041457cd",
+      "index": 4,
+      "link_hash": "04ac90c4cda948e3e366f428ef2c07f8954552eb974fd3bba3a40040b717654d",
+      "record_id": "DEC-0037"
+    },
+    {
+      "content_hash": "00d26fc15274844bf7e9d63e75f07a8f06ce80a1cb635e1058da3a68be378550",
+      "index": 5,
+      "link_hash": "c944f879975cd0b65a40db4632435056a094c8683842f562cc34764a91bb833c",
+      "record_id": "DEC-0011"
+    },
+    {
+      "content_hash": "8291d087bf1fe7b3cfcbe7e356e76d3230766d02577db94f803ca4e1fe39894e",
+      "index": 6,
+      "link_hash": "217dced594fc974b05cb40d7e4a14f8d0a4bc1b10c3811466c76a9a42b17d64b",
+      "record_id": "DEC-0029"
+    },
+    {
+      "content_hash": "e4280d5e4f8ecdf05bb245f58989ee91d14971a826729d33ceb069faa2d8f6f8",
+      "index": 7,
+      "link_hash": "433186918494a51a37e92f298567d64f34024bb9093d7bff88f6820dc2a0c37b",
+      "record_id": "DEC-0003"
+    },
+    {
+      "content_hash": "8d5a3542f47eb971b42539bc2e57a3f5ad128f8c61f51bd2990e287cbfbad81a",
+      "index": 8,
+      "link_hash": "11f3b3d8df937120ae5e39462cb29279f61036686fda9771a03b5819cff53312",
+      "record_id": "DEC-0021"
+    },
+    {
+      "content_hash": "f4ba8bf32481b68f5d976aa90f2bf4b2e6eb1fca00fe9e6b31805f401021a6ba",
+      "index": 9,
+      "link_hash": "9fbd083d120dffa8d316ebb7eb148ea007549bec39fb85690e7d21903abd6ea7",
+      "record_id": "DEC-0039"
+    },
+    {
+      "content_hash": "cf6af6d3cc95faf5479efb803272bfab3a4206e6995c509e15f159c87b630a3b",
+      "index": 10,
+      "link_hash": "c7c2830fd91c2302fd274ff4b3c58da90d011f6f993150c8111568b58e63bda8",
+      "record_id": "DEC-0013"
+    },
+    {
+      "content_hash": "c4f5f965f4119cbc613014c79bcafccf70763ec9e98deac8af5db30910ddbeaf",
+      "index": 11,
+      "link_hash": "5eb4a3b23ef3f31d8fd52144f87490c19d871d0aa87179688a4ad2e1dc96b63e",
+      "record_id": "DEC-0031"
+    },
+    {
+      "content_hash": "f9fd671d47c5bd64e205fea61f811ffefdbdb11bca3611a1f16aa8e1b936b0e5",
+      "index": 12,
+      "link_hash": "7ed95911c5052822db2d76b299734269714fc9db49cad21c712cfaf5e39921f4",
+      "record_id": "DEC-0005"
+    },
+    {
+      "content_hash": "07feb42ebb6465f0a6f6d6bf869d16bf8568db767831220d9bdecbdc563bd224",
+      "index": 13,
+      "link_hash": "251a32bc2bb493fda81281168ffd3eea0993c456b159487c71e537c76ee6f15d",
+      "record_id": "DEC-0023"
+    },
+    {
+      "content_hash": "8b8337ab8ca532383dec2fd11237afedd28d455fb89ac4c9123bd68100cdd1e2",
+      "index": 14,
+      "link_hash": "b80627bfd70698c5708894d7824bf7ea08ddf218636c917d94244ceeb8097533",
+      "record_id": "DEC-0015"
+    },
+    {
+      "content_hash": "4ca51c480c121db7cca1eea9e7b2821b8fad4aa896fb7ea3da8e36432919c0e8",
+      "index": 15,
+      "link_hash": "58545e01e66ccdfc86700732b4c714bfe91cb67510743ee2ea4a5e63f997377b",
+      "record_id": "DEC-0033"
+    },
+    {
+      "content_hash": "81e9beb3e6998d557afe5f0dd22c386e38d664b975fc9cabf13d98aaee84840e",
+      "index": 16,
+      "link_hash": "826bfccedbcb93ad769089617ab0baf055947223994ec1288ae5720bba17a4b9",
+      "record_id": "DEC-0007"
+    },
+    {
+      "content_hash": "a666317c14ca66e3f8337218f6d3c303fbc96f71deeaf0f460be3d090b01a461",
+      "index": 17,
+      "link_hash": "dfaee7832bdfc8c5231d98d35e984ab4b8a0275e2694bf6979277d44f06e4518",
+      "record_id": "DEC-0025"
+    },
+    {
+      "content_hash": "c8a3fc594cb01bc325d8b86c4cbace248aac4ff21bfa6929301458c47f292044",
+      "index": 18,
+      "link_hash": "e506e90065745ffb50a870c261309e7a935f9fcac2936deef8eb00628ac885f3",
+      "record_id": "DEC-0035"
+    },
+    {
+      "content_hash": "71dacea0429a80633901c2ec85a5f482c9514eee9ae3563c23fa96c5c9621833",
+      "index": 19,
+      "link_hash": "dbbb0299cb52a7c5388b7998f4590f5e71f761c4256b4fa2e36fb5026eac8e20",
+      "record_id": "DEC-0017"
+    },
+    {
+      "content_hash": "aaa6584137573c92df41e6a35a4f97a549498f3ec8eb68a039a3177c3924520e",
+      "index": 20,
+      "link_hash": "e529ee1e8510f590357f416676f10fdc5000c186a54c21ceae5dd69dbc33de7a",
+      "record_id": "DEC-0018"
+    },
+    {
+      "content_hash": "baeeceaba8921a39dd70229814b981c4ce9003c739ea5822b48db0a12ccf7997",
+      "index": 21,
+      "link_hash": "1c74086423cccdb966ef63c88150e7f5779bc58de1b4dc61171129eedb5b7303",
+      "record_id": "DEC-0036"
+    },
+    {
+      "content_hash": "cb385014976bc0144721a903372f28da577e976e805a82c5cf42dec4d7097199",
+      "index": 22,
+      "link_hash": "664bb4f37cfde06e35da22dc0dee67b42e2c9150c883639e7c3f70ef109bd34f",
+      "record_id": "DEC-0010"
+    },
+    {
+      "content_hash": "b1fe09382b7a8285da8da4f802ac0076ab6b8f67996cf914cc2cf4fbb2655ee1",
+      "index": 23,
+      "link_hash": "d901869a7dfefd2a17007892dd2f2264e9cea0dc4ad86560b8e9e04fbce6628e",
+      "record_id": "DEC-0028"
+    },
+    {
+      "content_hash": "aaeb06915bcbb27493fa0773098fc7172ac01c47dd0c13ae8bcaa58c3966bf53",
+      "index": 24,
+      "link_hash": "4ca0456c2bdc933cbf41a7d69f4a22a086d2c85ebeb62f35827779694ecc2341",
+      "record_id": "DEC-0002"
+    },
+    {
+      "content_hash": "311c9246a50262e84f8786532f6d75e710f4ce649e62b6be8fff2d32ee6880c3",
+      "index": 25,
+      "link_hash": "914e9699cd8f19c085b1fbc0a5a515e43bcbb6242adefe576c40ac58f5bd7fec",
+      "record_id": "DEC-0020"
+    },
+    {
+      "content_hash": "535641037f2de880b4339c47594f4a9958880141854d87925dd753297d8b67b3",
+      "index": 26,
+      "link_hash": "c8c025389e756da2992f8127048998700cec09bdc5fa309065f8cd83fd261413",
+      "record_id": "DEC-0038"
+    },
+    {
+      "content_hash": "413a3784b345a2d5e53e18b20fbe021d7400cbf83095bd4071094f7faf92b633",
+      "index": 27,
+      "link_hash": "9e2b29cb4f8d160c2f413a2604c2f3a4aad95c80e5405ae811c562b121cc1dbf",
+      "record_id": "DEC-0012"
+    },
+    {
+      "content_hash": "5981f7d9304af92372815ae5eeb5a0964b26ecaa56e87bd5b76bad7bdba05c6c",
+      "index": 28,
+      "link_hash": "69bacf0788e6582e5690f1643b7426670854d2e3934796fe16477c6c3585a17d",
+      "record_id": "DEC-0030"
+    },
+    {
+      "content_hash": "7ace81c4b3b2acd24482c67b4861e1dd3f03e72e4ef3731fa23b98c62870e41d",
+      "index": 29,
+      "link_hash": "115f2a1d503163c0594ca160a8d1eaf591b1dccb9724523be3ff2c5013fa31c7",
+      "record_id": "DEC-0004"
+    },
+    {
+      "content_hash": "137bff51c56139ca0cbab267a4ffa6c98f1617d42e8760e5175be1a53f1604ad",
+      "index": 30,
+      "link_hash": "1897ff167726345df39af0ca1fd674670191571c7d5bb45fd9d1256573487bf2",
+      "record_id": "DEC-0022"
+    },
+    {
+      "content_hash": "ad4ff4f179e82f5780a1e4dfdc393b08a9e637ed2c470687f73696dab54962b2",
+      "index": 31,
+      "link_hash": "ef599634e5ec7d4891a05b8b2ade1dc2032ae2d5d709603342f1c94413ef4e1b",
+      "record_id": "DEC-0040"
+    },
+    {
+      "content_hash": "09e5f49ffb1bda0624241994946bcef129716cc9f5bbf94d482ead5d42d1c829",
+      "index": 32,
+      "link_hash": "4abbf3f5b1bcad3dbe495430d0480ee5595f5dae425885b21ced29d462d0507d",
+      "record_id": "DEC-0014"
+    },
+    {
+      "content_hash": "9d9bb4ffdfdbea9b0131b8e9e064c7b3371530e8b597b7da5337e944823cae84",
+      "index": 33,
+      "link_hash": "c54d4d77fcb5006e08db177684cbd8f72849572e94cba9e9e683527afc9934f3",
+      "record_id": "DEC-0032"
+    },
+    {
+      "content_hash": "e3d2319eb2335425e285752da27f031d3be45ab45346a43aca9863a49e46be42",
+      "index": 34,
+      "link_hash": "fadfe0bfc25cece75e1c6d20c3d6cf3e0aad64685735485affbe94b460f4fd5a",
+      "record_id": "DEC-0006"
+    },
+    {
+      "content_hash": "3f3e5db64e532aac610d54e2efa7f1ffa164072d6fc488b9b39cf95301b3b6aa",
+      "index": 35,
+      "link_hash": "10b6c918d96717deef8b9af1a754cb600c1c296f960ea7603252e23cde355935",
+      "record_id": "DEC-0024"
+    },
+    {
+      "content_hash": "0f222a6cb9050349c11fcf8d218be4c6631c94677b398f6e0d777d13f06c2659",
+      "index": 36,
+      "link_hash": "3aff3a82e46a90c398661251074fc52742cba952d138a396bd2ff2c8c44e62e6",
+      "record_id": "DEC-0016"
+    },
+    {
+      "content_hash": "39b39d93966c7519f366e6ec4f9cad648522980ef02bee624d9f835d89ff41e7",
+      "index": 37,
+      "link_hash": "5c39b3e90e878b4cf9b26689ab9521a129a9e9d40daff93a8dc21c83d6bacec2",
+      "record_id": "DEC-0034"
+    },
+    {
+      "content_hash": "fd003d78d0a8e977ba8e79991e13b7578cbbc168239af26ea0ad39ec47992c6f",
+      "index": 38,
+      "link_hash": "70487b0ed98220a0dde26c805bbd92bffd6c27469872fe6b7de7a2935a2a690d",
+      "record_id": "DEC-0026"
+    },
+    {
+      "content_hash": "0431e26c80d4a340f911be5110fc29892b385422a2f1dfb3344d682c842cad67",
+      "index": 39,
+      "link_hash": "57cc9d142663e8e157939cede2e81c160250ade524408647f1e51667436e59ce",
+      "record_id": "DEC-0008"
+    }
+  ],
+  "root_hash": "57cc9d142663e8e157939cede2e81c160250ade524408647f1e51667436e59ce",
+  "scenario": "Consumer lending - loan application review",
+  "threat_model_note": "This hash chain detects modification, reordering, or deletion of evidence records relative to a previously exported root hash. It does NOT prove the underlying review was substantive, and without an external anchor (signature/timestamp) it does not stop a party who controls all inputs from recomputing a fresh, internally consistent chain. External anchoring is planned for V2.",
+  "tool_version": "1.0.0"
+}

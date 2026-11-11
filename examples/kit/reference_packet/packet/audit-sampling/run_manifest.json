@@ -1,0 +1,67 @@
+{
+  "as_of": "2026-05-20T00:00:00Z",
+  "config": {
+    "escape_policy": {
+      "escape_outcomes": [
+        "corrected",
+        "escalated",
+        "complaint",
+        "defect"
+      ],
+      "fail_threshold": {
+        "high_attention_count": 5
+      },
+      "max_escape_rate": 0.1,
+      "min_segment_size": 10
+    },
+    "sampling_policy": {
+      "confidence": 0.95,
+      "margin_of_error": 0.1,
+      "method": "systematic",
+      "min_sample": 5,
+      "stratify_by": [
+        "item_type"
+      ]
+    }
+  },
+  "escape_count": 0,
+  "findings_total": 1,
+  "inputs_hash": "fcd64fc736d83809e9873d739841bead",
+  "output_inventory": [
+    "audit_sample.json",
+    "audit_sample.md",
+    "auto_approval_safety_scorecard.json",
+    "auto_approval_safety_scorecard.md",
+    "escape_rate_report.json",
+    "escape_rate_report.md",
+    "executive_auto_approval_safety_summary.json",
+    "executive_auto_approval_safety_summary.md",
+    "input_echo.json",
+    "input_echo.md",
+    "loose_threshold_report.json",
+    "loose_threshold_report.md",
+    "risky_bypass_report.json",
+    "risky_bypass_report.md",
+    "run_manifest.json",
+    "sampling_methodology.json",
+    "sampling_methodology.md",
+    "segment_escape_report.json",
+    "segment_escape_report.md",
+    "whatif_recommendations.json",
+    "whatif_recommendations.md"
+  ],
+  "population": 29,
+  "posture": "high_attention",
+  "run_id": "R-1b81ff707cf64766",
+  "sample": {
+    "achieved_margin": 0.178919,
+    "achieved_sample_size": 15,
+    "is_census": false,
+    "method": "systematic",
+    "target_margin": 0.1,
+    "target_sample_size": 23
+  },
+  "scenario": "Consumer lending - loan application review",
+  "tool": "auto-approval-auditor",
+  "tool_version": "1.0.0"
+}

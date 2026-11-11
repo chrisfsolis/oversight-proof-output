@@ -1,0 +1,23 @@
+{
+  "as_of": "2026-05-20T00:00:00+00:00",
+  "by_edit_magnitude": {
+    "major": 3,
+    "minor": 5,
+    "none": 32
+  },
+  "by_outcome": {
+    "approve": 22,
+    "escalate": 2,
+    "reject": 14,
+    "request_changes": 2
+  },
+  "by_reviewer": {
+    "r_alex": 20,
+    "r_blake": 20
+  },
+  "disclaimer": "Advisory statistical signals, not conclusive proof of motive or fault. Not a performance-management or disciplinary instrument; the accountable governance owner remains the source of truth.",
+  "earliest_decided_at": "2026-05-10T08:03:00+00:00",
+  "latest_decided_at": "2026-05-11T16:56:00+00:00",
+  "report": "input_decision_log_summary",
+  "total_decisions": 40
+}

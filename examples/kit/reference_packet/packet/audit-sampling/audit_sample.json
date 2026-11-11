@@ -1,0 +1,176 @@
+{
+  "achieved_margin": 0.178919,
+  "achieved_sample_size": 15,
+  "census_reason": "",
+  "confidence": 0.95,
+  "disclaimer": "Advisory only. Accountable owners remain the source of truth for auto-approval policy and outcomes. This audit sample supports retrospective human spot-check; it does not certify the whole population, and escapes are a lagging signal. All data is synthetic.",
+  "entries": [
+    {
+      "auto_rule_id": "AR-appeal",
+      "downstream_outcome": "none",
+      "entry_id": "S-86c0ff189259ed2b",
+      "is_escape": false,
+      "item_id": "TF-AUTO-A01",
+      "item_type": "account_appeal",
+      "stratum": "account_appeal"
+    },
+    {
+      "auto_rule_id": "AR-appeal",
+      "downstream_outcome": "none",
+      "entry_id": "S-5a7292ae3a2d9f96",
+      "is_escape": false,
+      "item_id": "TF-AUTO-A03",
+      "item_type": "account_appeal",
+      "stratum": "account_appeal"
+    },
+    {
+      "auto_rule_id": "AR-appeal",
+      "downstream_outcome": "none",
+      "entry_id": "S-7e036cb774f51741",
+      "is_escape": false,
+      "item_id": "TF-AUTO-A05",
+      "item_type": "account_appeal",
+      "stratum": "account_appeal"
+    },
+    {
+      "auto_rule_id": "AR-content",
+      "downstream_outcome": "none",
+      "entry_id": "S-93f362ade56d763f",
+      "is_escape": false,
+      "item_id": "TF-AUTO-C01",
+      "item_type": "content_flag",
+      "stratum": "content_flag"
+    },
+    {
+      "auto_rule_id": "AR-content",
+      "downstream_outcome": "none",
+      "entry_id": "S-8de144f6f7cd07b7",
+      "is_escape": false,
+      "item_id": "TF-AUTO-C03",
+      "item_type": "content_flag",
+      "stratum": "content_flag"
+    },
+    {
+      "auto_rule_id": "AR-content",
+      "downstream_outcome": "none",
+      "entry_id": "S-9d3b9636a9ac9cee",
+      "is_escape": false,
+      "item_id": "TF-AUTO-C05",
+      "item_type": "content_flag",
+      "stratum": "content_flag"
+    },
+    {
+      "auto_rule_id": "AR-content",
+      "downstream_outcome": "none",
+      "entry_id": "S-2a839d01466053b0",
+      "is_escape": false,
+      "item_id": "TF-AUTO-C07",
+      "item_type": "content_flag",
+      "stratum": "content_flag"
+    },
+    {
+      "auto_rule_id": "AR-content",
+      "downstream_outcome": "none",
+      "entry_id": "S-9415ddd731c8a878",
+      "is_escape": false,
+      "item_id": "TF-AUTO-C09",
+      "item_type": "content_flag",
+      "stratum": "content_flag"
+    },
+    {
+      "auto_rule_id": "AR-content",
+      "downstream_outcome": "none",
+      "entry_id": "S-2b650b29f64b8d2f",
+      "is_escape": false,
+      "item_id": "TF-AUTO-C11",
+      "item_type": "content_flag",
+      "stratum": "content_flag"
+    },
+    {
+      "auto_rule_id": "AR-payment",
+      "downstream_outcome": "none",
+      "entry_id": "S-3e29ad03a4877f87",
+      "is_escape": false,
+      "item_id": "TF-AUTO-P01",
+      "item_type": "payment_hold",
+      "stratum": "payment_hold"
+    },
+    {
+      "auto_rule_id": "AR-payment",
+      "downstream_outcome": "none",
+      "entry_id": "S-176a44dba7252b53",
+      "is_escape": false,
+      "item_id": "TF-AUTO-P03",
+      "item_type": "payment_hold",
+      "stratum": "payment_hold"
+    },
+    {
+      "auto_rule_id": "AR-payment",
+      "downstream_outcome": "none",
+      "entry_id": "S-2f928050feaebc31",
+      "is_escape": false,
+      "item_id": "TF-AUTO-P05",
+      "item_type": "payment_hold",
+      "stratum": "payment_hold"
+    },
+    {
+      "auto_rule_id": "AR-payment",
+      "downstream_outcome": "none",
+      "entry_id": "S-9f3fada1aa981293",
+      "is_escape": false,
+      "item_id": "TF-AUTO-P07",
+      "item_type": "payment_hold",
+      "stratum": "payment_hold"
+    },
+    {
+      "auto_rule_id": "AR-payment",
+      "downstream_outcome": "none",
+      "entry_id": "S-1bae5c7db7d47a18",
+      "is_escape": false,
+      "item_id": "TF-AUTO-P09",
+      "item_type": "payment_hold",
+      "stratum": "payment_hold"
+    },
+    {
+      "auto_rule_id": "AR-payment",
+      "downstream_outcome": "none",
+      "entry_id": "S-98dd5161f4185ddc",
+      "is_escape": false,
+      "item_id": "TF-AUTO-RISK1",
+      "item_type": "content_flag",
+      "stratum": "content_flag"
+    }
+  ],
+  "is_census": false,
+  "method": "systematic",
+  "population": 29,
+  "report": "audit_sample",
+  "strata": [
+    {
+      "population": 6,
+      "selected": 3,
+      "stratum": "account_appeal",
+      "stride": 2,
+      "target": 5
+    },
+    {
+      "population": 13,
+      "selected": 7,
+      "stratum": "content_flag",
+      "stride": 2,
+      "target": 10
+    },
+    {
+      "population": 10,
+      "selected": 5,
+      "stratum": "payment_hold",
+      "stride": 2,
+      "target": 8
+    }
+  ],
+  "stratify_by": [
+    "item_type"
+  ],
+  "target_margin": 0.1,
+  "target_sample_size": 23
+}

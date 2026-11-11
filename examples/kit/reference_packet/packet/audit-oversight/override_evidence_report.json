@@ -1,0 +1,44 @@
+{
+  "by_reviewer": {
+    "r_alex": {
+      "decisions": 20,
+      "override_rate": 0.15,
+      "overrides": 3
+    },
+    "r_blake": {
+      "decisions": 20,
+      "override_rate": 0.15,
+      "overrides": 3
+    }
+  },
+  "by_window": {
+    "30d": {
+      "decisions": 40,
+      "override_rate": 0.15,
+      "overrides": 6
+    },
+    "7d": {
+      "decisions": 0,
+      "override_rate": 0.0,
+      "overrides": 0
+    },
+    "all": {
+      "decisions": 0,
+      "override_rate": 0.0,
+      "overrides": 0
+    }
+  },
+  "decision_count": 40,
+  "metric": "override_rate",
+  "overridden_decision_ids": [
+    "DEC-0022",
+    "DEC-0024",
+    "DEC-0025",
+    "DEC-0027",
+    "DEC-0029",
+    "DEC-0032"
+  ],
+  "override_count": 6,
+  "override_rate": 0.15,
+  "status": "evidenced"
+}

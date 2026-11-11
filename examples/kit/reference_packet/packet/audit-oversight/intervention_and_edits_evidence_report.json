@@ -1,0 +1,53 @@
+{
+  "decision_count": 40,
+  "edit_magnitude_counts": {
+    "major": 3,
+    "minor": 5,
+    "none": 32
+  },
+  "edit_rate": 0.2,
+  "edit_status": "evidenced",
+  "edited_decision_ids": [
+    "DEC-0001",
+    "DEC-0003",
+    "DEC-0005",
+    "DEC-0008",
+    "DEC-0010",
+    "DEC-0021",
+    "DEC-0023",
+    "DEC-0026"
+  ],
+  "escalate_decision_ids": [
+    "DEC-0035",
+    "DEC-0036"
+  ],
+  "intervention_decision_ids": [
+    "DEC-0001",
+    "DEC-0003",
+    "DEC-0005",
+    "DEC-0008",
+    "DEC-0010",
+    "DEC-0021",
+    "DEC-0023",
+    "DEC-0026",
+    "DEC-0027",
+    "DEC-0030",
+    "DEC-0033",
+    "DEC-0034",
+    "DEC-0035",
+    "DEC-0036"
+  ],
+  "intervention_rate": 0.35,
+  "intervention_status": "evidenced",
+  "metric": "intervention",
+  "request_changes_decision_ids": [
+    "DEC-0033",
+    "DEC-0034"
+  ],
+  "stop_decision_ids": [
+    "DEC-0027",
+    "DEC-0030"
+  ],
+  "stop_rate": 0.05,
+  "stop_status": "evidenced"
+}

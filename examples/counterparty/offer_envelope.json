@@ -1,0 +1,45 @@
+{
+  "schema_version": "oversight-exchange-v1",
+  "receipt": {
+    "anchors": [
+      {
+        "anchor_height": 800111,
+        "block_headers_file": "anchors/anchor_headers.json",
+        "imprint_alg": "sha256",
+        "proof_file": "anchors/anchor_a.ots",
+        "type": "opentimestamps"
+      },
+      {
+        "anchor_height": 811222,
+        "block_headers_file": "anchors/anchor_headers.json",
+        "imprint_alg": "sha256",
+        "proof_file": "anchors/anchor_b.ots",
+        "type": "opentimestamps"
+      }
+    ],
+    "claims": "This oversight receipt attests the existence, time, and immutability of an OversightProof evidence dossier: that a dossier committing to this salted root existed no later than the anchored time and has not changed since. It does not attest that the underlying human review was meaningful, that the inputs were truthful or complete, or that any legal or regulatory obligation is met. It is advisory evidence for an accountable human owner, not legal advice and not a compliance determination.",
+    "commitment": {
+      "algorithm": "hmac-sha256",
+      "dossier_root_alg": "sha256",
+      "salted_root_hex": "82bbed123a692e4bb0be5936004aed81eb290e51c8c869975ddb00da9a23339a"
+    },
+    "metadata": {
+      "as_of": "2026-03-16T00:00:00Z",
+      "dossier_record_count": 75,
+      "engine_version": "1.20.0",
+      "manifest_schema_version": "1.0",
+      "receipt_schema_version": "oversight-receipt-v1",
+      "run_id": "receipt-example"
+    },
+    "produced_by": "oversight_proof_timestamp/receipt",
+    "schema_version": "oversight-receipt-v1"
+  },
+  "exchange": {
+    "sender": "northwind-payments-ops",
+    "audience": "brightline-external-audit",
+    "purpose": "Share an anchored oversight receipt for the Q1 review dossier so the auditor can confirm its existence, time, and immutability without receiving any decision data.",
+    "issued_at": "2026-03-16T12:00:00Z",
+    "exchange_id": "xchg-2026-0001"
+  },
+  "claims": "Exchanging this envelope is evidence that an OversightProof evidence dossier existed no later than the anchored time, has not changed since, and was shared by the named sender with the named audience for the stated purpose. It does not determine that either party is in compliance with any legal or regulatory obligation, and it is not a certification of the counterparty. Anchor-only verification confirms the existence, time, and immutability of the salted commitment without revealing any underlying decision data. It is advisory evidence for an accountable human owner, not legal advice and not a compliance determination."
+}

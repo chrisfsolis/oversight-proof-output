@@ -1,0 +1,271 @@
+{
+  "as_of": "2026-05-20T00:00:00+00:00",
+  "cohort": {
+    "metric": "approval_rate",
+    "subject_id": "all_reviewers",
+    "subject_kind": "cohort",
+    "total_variation_first_last": null,
+    "trend": null,
+    "windows": [
+      {
+        "end": "2026-04-15T00:00:00+00:00",
+        "label": "w1",
+        "metric_value": null,
+        "n": 0,
+        "outcome_distribution": {
+          "approve": 0.0,
+          "escalate": 0.0,
+          "reject": 0.0,
+          "request_changes": 0.0
+        },
+        "start": "2026-04-08T00:00:00+00:00"
+      },
+      {
+        "end": "2026-04-22T00:00:00+00:00",
+        "label": "w2",
+        "metric_value": null,
+        "n": 0,
+        "outcome_distribution": {
+          "approve": 0.0,
+          "escalate": 0.0,
+          "reject": 0.0,
+          "request_changes": 0.0
+        },
+        "start": "2026-04-15T00:00:00+00:00"
+      },
+      {
+        "end": "2026-04-29T00:00:00+00:00",
+        "label": "w3",
+        "metric_value": null,
+        "n": 0,
+        "outcome_distribution": {
+          "approve": 0.0,
+          "escalate": 0.0,
+          "reject": 0.0,
+          "request_changes": 0.0
+        },
+        "start": "2026-04-22T00:00:00+00:00"
+      },
+      {
+        "end": "2026-05-06T00:00:00+00:00",
+        "label": "w4",
+        "metric_value": null,
+        "n": 0,
+        "outcome_distribution": {
+          "approve": 0.0,
+          "escalate": 0.0,
+          "reject": 0.0,
+          "request_changes": 0.0
+        },
+        "start": "2026-04-29T00:00:00+00:00"
+      },
+      {
+        "end": "2026-05-13T00:00:00+00:00",
+        "label": "w5",
+        "metric_value": 0.55,
+        "n": 40,
+        "outcome_distribution": {
+          "approve": 0.55,
+          "escalate": 0.05,
+          "reject": 0.35,
+          "request_changes": 0.05
+        },
+        "start": "2026-05-06T00:00:00+00:00"
+      },
+      {
+        "end": "2026-05-20T00:00:00+00:00",
+        "label": "w6",
+        "metric_value": null,
+        "n": 0,
+        "outcome_distribution": {
+          "approve": 0.0,
+          "escalate": 0.0,
+          "reject": 0.0,
+          "request_changes": 0.0
+        },
+        "start": "2026-05-13T00:00:00+00:00"
+      }
+    ]
+  },
+  "disclaimer": "Advisory statistical signals, not conclusive proof of motive or fault. Not a performance-management or disciplinary instrument; the accountable governance owner remains the source of truth.",
+  "metric": "approval_rate",
+  "num_windows": 6,
+  "report": "temporal_drift_report",
+  "reviewers": [
+    {
+      "metric": "approval_rate",
+      "subject_id": "r_alex",
+      "subject_kind": "reviewer",
+      "total_variation_first_last": null,
+      "trend": null,
+      "windows": [
+        {
+          "end": "2026-04-15T00:00:00+00:00",
+          "label": "w1",
+          "metric_value": null,
+          "n": 0,
+          "outcome_distribution": {
+            "approve": 0.0,
+            "escalate": 0.0,
+            "reject": 0.0,
+            "request_changes": 0.0
+          },
+          "start": "2026-04-08T00:00:00+00:00"
+        },
+        {
+          "end": "2026-04-22T00:00:00+00:00",
+          "label": "w2",
+          "metric_value": null,
+          "n": 0,
+          "outcome_distribution": {
+            "approve": 0.0,
+            "escalate": 0.0,
+            "reject": 0.0,
+            "request_changes": 0.0
+          },
+          "start": "2026-04-15T00:00:00+00:00"
+        },
+        {
+          "end": "2026-04-29T00:00:00+00:00",
+          "label": "w3",
+          "metric_value": null,
+          "n": 0,
+          "outcome_distribution": {
+            "approve": 0.0,
+            "escalate": 0.0,
+            "reject": 0.0,
+            "request_changes": 0.0
+          },
+          "start": "2026-04-22T00:00:00+00:00"
+        },
+        {
+          "end": "2026-05-06T00:00:00+00:00",
+          "label": "w4",
+          "metric_value": null,
+          "n": 0,
+          "outcome_distribution": {
+            "approve": 0.0,
+            "escalate": 0.0,
+            "reject": 0.0,
+            "request_changes": 0.0
+          },
+          "start": "2026-04-29T00:00:00+00:00"
+        },
+        {
+          "end": "2026-05-13T00:00:00+00:00",
+          "label": "w5",
+          "metric_value": 0.6,
+          "n": 20,
+          "outcome_distribution": {
+            "approve": 0.6,
+            "escalate": 0.05,
+            "reject": 0.3,
+            "request_changes": 0.05
+          },
+          "start": "2026-05-06T00:00:00+00:00"
+        },
+        {
+          "end": "2026-05-20T00:00:00+00:00",
+          "label": "w6",
+          "metric_value": null,
+          "n": 0,
+          "outcome_distribution": {
+            "approve": 0.0,
+            "escalate": 0.0,
+            "reject": 0.0,
+            "request_changes": 0.0
+          },
+          "start": "2026-05-13T00:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "metric": "approval_rate",
+      "subject_id": "r_blake",
+      "subject_kind": "reviewer",
+      "total_variation_first_last": null,
+      "trend": null,
+      "windows": [
+        {
+          "end": "2026-04-15T00:00:00+00:00",
+          "label": "w1",
+          "metric_value": null,
+          "n": 0,
+          "outcome_distribution": {
+            "approve": 0.0,
+            "escalate": 0.0,
+            "reject": 0.0,
+            "request_changes": 0.0
+          },
+          "start": "2026-04-08T00:00:00+00:00"
+        },
+        {
+          "end": "2026-04-22T00:00:00+00:00",
+          "label": "w2",
+          "metric_value": null,
+          "n": 0,
+          "outcome_distribution": {
+            "approve": 0.0,
+            "escalate": 0.0,
+            "reject": 0.0,
+            "request_changes": 0.0
+          },
+          "start": "2026-04-15T00:00:00+00:00"
+        },
+        {
+          "end": "2026-04-29T00:00:00+00:00",
+          "label": "w3",
+          "metric_value": null,
+          "n": 0,
+          "outcome_distribution": {
+            "approve": 0.0,
+            "escalate": 0.0,
+            "reject": 0.0,
+            "request_changes": 0.0
+          },
+          "start": "2026-04-22T00:00:00+00:00"
+        },
+        {
+          "end": "2026-05-06T00:00:00+00:00",
+          "label": "w4",
+          "metric_value": null,
+          "n": 0,
+          "outcome_distribution": {
+            "approve": 0.0,
+            "escalate": 0.0,
+            "reject": 0.0,
+            "request_changes": 0.0
+          },
+          "start": "2026-04-29T00:00:00+00:00"
+        },
+        {
+          "end": "2026-05-13T00:00:00+00:00",
+          "label": "w5",
+          "metric_value": 0.5,
+          "n": 20,
+          "outcome_distribution": {
+            "approve": 0.5,
+            "escalate": 0.05,
+            "reject": 0.4,
+            "request_changes": 0.05
+          },
+          "start": "2026-05-06T00:00:00+00:00"
+        },
+        {
+          "end": "2026-05-20T00:00:00+00:00",
+          "label": "w6",
+          "metric_value": null,
+          "n": 0,
+          "outcome_distribution": {
+            "approve": 0.0,
+            "escalate": 0.0,
+            "reject": 0.0,
+            "request_changes": 0.0
+          },
+          "start": "2026-05-13T00:00:00+00:00"
+        }
+      ]
+    }
+  ],
+  "window_strategy": "by_time"
+}

@@ -1,0 +1,33 @@
+{
+  "as_of": "2026-05-20T00:00:00+00:00",
+  "coverage": {
+    "calibration_reviewers_profiled": 2,
+    "decisions": 40,
+    "drift_reviewers_analyzed": 2,
+    "overlapping_items_analyzed": 20,
+    "review_items": 49,
+    "reviewers": 4,
+    "reviewers_in_log": 2,
+    "rubber_stamp_reviewers_profiled": 2,
+    "similarity_groups_analyzed": 2
+  },
+  "disclaimer": "Advisory statistical signals, not conclusive proof of motive or fault. Not a performance-management or disciplinary instrument; the accountable governance owner remains the source of truth.",
+  "family_counts": {
+    "agreement": 0,
+    "calibration": 0,
+    "drift": 0,
+    "rubber_stamp": 0,
+    "similarity": 0
+  },
+  "high_attention_count": 0,
+  "posture": "informational",
+  "posture_statement": "No findings above informational. The audited window shows no statistical consistency signals worth escalating at this time.",
+  "report": "executive_consistency_summary",
+  "severity_counts": {
+    "governance_action_recommended": 0,
+    "high_attention": 0,
+    "informational": 0,
+    "review_recommended": 0
+  },
+  "top_findings": []
+}
