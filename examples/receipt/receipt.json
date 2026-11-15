@@ -19,7 +19,7 @@
   "commitment": {
     "algorithm": "hmac-sha256",
     "dossier_root_alg": "sha256",
-    "salted_root_hex": "0e2c8ad9677027c4522f68d509d9382f1ba9f5fbae5168725d00db127fed9c0d"
+    "salted_root_hex": "3a43f2e76b00ccbd8938b7641d4519cad6d4b9e2e1371a17dc446603958f23b5"
   },
   "metadata": {
     "as_of": "2026-03-16T00:00:00Z",

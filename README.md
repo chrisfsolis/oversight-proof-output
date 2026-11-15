@@ -23,9 +23,9 @@ python3 verify.py examples/kit/reference_packet
 ```
 
 ```
-PASS (internally consistent): every file matches the manifest and the root recorded in this kit (ce699c8ef1c4b717de1f585ded9eba7b1a03388fc8c388446a49a03c19b57280). To confirm the packet is the one that was sent, compare this root with one you received separately, or run again with --expect-root.
+PASS (internally consistent): every file matches the manifest and the root recorded in this kit (c7f5b5fc58bd1ffe6506116b2a21e933ae5a0b396ffbb2380dca15ef8e9c5bad). To confirm the packet is the one that was sent, compare this root with one you received separately, or run again with --expect-root.
   files checked: 75
-  root: ce699c8ef1c4b717de1f585ded9eba7b1a03388fc8c388446a49a03c19b57280
+  root: c7f5b5fc58bd1ffe6506116b2a21e933ae5a0b396ffbb2380dca15ef8e9c5bad
 This checks the packet's files against that root. It is not a compliance finding.
 ```
 
@@ -35,13 +35,13 @@ get this result. What closes that gap is a root you received **separately** from
 email, on a ticket, in a contract — passed with `--expect-root`:
 
 ```
-python3 verify.py examples/kit/reference_packet --expect-root ce699c8ef1c4b717de1f585ded9eba7b1a03388fc8c388446a49a03c19b57280
+python3 verify.py examples/kit/reference_packet --expect-root c7f5b5fc58bd1ffe6506116b2a21e933ae5a0b396ffbb2380dca15ef8e9c5bad
 ```
 
 ```
-PASS: every file matches the manifest, and the root matches the one you supplied (ce699c8ef1c4b717de1f585ded9eba7b1a03388fc8c388446a49a03c19b57280).
+PASS: every file matches the manifest, and the root matches the one you supplied (c7f5b5fc58bd1ffe6506116b2a21e933ae5a0b396ffbb2380dca15ef8e9c5bad).
   files checked: 75
-  root: ce699c8ef1c4b717de1f585ded9eba7b1a03388fc8c388446a49a03c19b57280
+  root: c7f5b5fc58bd1ffe6506116b2a21e933ae5a0b396ffbb2380dca15ef8e9c5bad
 This checks the packet's files against that root. It is not a compliance finding.
 ```
 
@@ -64,8 +64,8 @@ python3 verify.py /tmp/tampered
 ```
 FAIL: the evidence packet did not verify.
   - content changed: oversight_report.md
-  - root does not match the manifest (recomputed 2d6ffb8d2d84cdea7a1e788f5a3da091799337e065be993452402ca7011b41d7, manifest ce699c8ef1c4b717de1f585ded9eba7b1a03388fc8c388446a49a03c19b57280)
-  - root does not match provenance.json (recomputed 2d6ffb8d2d84cdea7a1e788f5a3da091799337e065be993452402ca7011b41d7, expected ce699c8ef1c4b717de1f585ded9eba7b1a03388fc8c388446a49a03c19b57280)
+  - root does not match the manifest (recomputed 441b1309a4db729d3e457b71855129fa71d36c18f05d3a598e04ddf1e781440a, manifest c7f5b5fc58bd1ffe6506116b2a21e933ae5a0b396ffbb2380dca15ef8e9c5bad)
+  - root does not match provenance.json (recomputed 441b1309a4db729d3e457b71855129fa71d36c18f05d3a598e04ddf1e781440a, expected c7f5b5fc58bd1ffe6506116b2a21e933ae5a0b396ffbb2380dca15ef8e9c5bad)
 ```
 
 One byte, in a 22 KB report, inside a 76-file packet. The recomputed root you see will differ from
@@ -103,6 +103,13 @@ relative to the kit folder.
 - `examples/counterparty/` — committed exchange envelopes, as test vectors.
 - `examples/kit/reference_packet/` — the sample kit used above. It carries its own copy of
   `verify.py` at its root, so either copy may be used; both are the same file.
+- `tests/` — the test suite, standard library only: `python -m unittest discover -s tests -v`.
+  It checks the sample kit, a one-byte change, and kits built to fool or harm the verifier.
+- `fuzz/` — a coverage-guided fuzzer for `verify.py` (Atheris, pinned by hash), run weekly.
+- `.github/` — the workflows that run the tests, CodeQL, OpenSSF Scorecard and the fuzzer, and
+  the Dependabot configuration.
+- `.gitattributes` — keeps every file's bytes as committed on every platform, so the sample kit
+  verifies on a Windows checkout too.
 
 Every artifact in this repository is synthetic. None of it is customer data.
 
@@ -136,8 +143,9 @@ say any legal or regulatory obligation has been met.
 ## Requirements
 
 Python 3.11 or later, and nothing else. `verify.py` imports only the standard library — `hashlib`,
-`json`, `re`, `sys`, `datetime`, `pathlib`, `typing`, and `annotations` from `__future__` — and a
-guard in the private repository fails the build if an import of the engine is ever added to it.
+`json`, `re`, `sys`, `unicodedata`, `datetime`, `pathlib`, `typing`, and `annotations` from
+`__future__` — and a guard in the private repository fails the build if an import of the engine
+is ever added to it.
 
 ## License
 

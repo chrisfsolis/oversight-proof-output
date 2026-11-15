@@ -5,8 +5,8 @@
 Deterministic stratified **systematic** sampling. Sample size by Cochran's formula with a finite-population correction; z from the standard-normal quantile (stdlib). No RNG: re-running reselects the identical sample.
 
 - Confidence: 0.95
-- Target margin: 0.100; achieved margin: 0.179
-- Population: 29; target n: 23; achieved n: 15
+- Target margin: 0.100; achieved margin: 0.095
+- Population: 29; target n: 23; achieved n: 23
 - Census recommended: no
 
 ## Citations

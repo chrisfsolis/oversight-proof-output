@@ -1,6 +1,6 @@
 {
-  "achieved_margin": 0.178919,
-  "achieved_sample_size": 15,
+  "achieved_margin": 0.094591,
+  "achieved_sample_size": 23,
   "census_reason": "",
   "confidence": 0.95,
   "disclaimer": "Advisory only. Accountable owners remain the source of truth for auto-approval policy and outcomes. This audit sample supports retrospective human spot-check; it does not certify the whole population, and escapes are a lagging signal. All data is synthetic.",
@@ -17,9 +17,27 @@
     {
       "auto_rule_id": "AR-appeal",
       "downstream_outcome": "none",
+      "entry_id": "S-787e8a8438c11b69",
+      "is_escape": false,
+      "item_id": "TF-AUTO-A02",
+      "item_type": "account_appeal",
+      "stratum": "account_appeal"
+    },
+    {
+      "auto_rule_id": "AR-appeal",
+      "downstream_outcome": "none",
       "entry_id": "S-5a7292ae3a2d9f96",
       "is_escape": false,
       "item_id": "TF-AUTO-A03",
+      "item_type": "account_appeal",
+      "stratum": "account_appeal"
+    },
+    {
+      "auto_rule_id": "AR-appeal",
+      "downstream_outcome": "none",
+      "entry_id": "S-0ac31edaa6923c60",
+      "is_escape": false,
+      "item_id": "TF-AUTO-A04",
       "item_type": "account_appeal",
       "stratum": "account_appeal"
     },
@@ -44,6 +62,15 @@
     {
       "auto_rule_id": "AR-content",
       "downstream_outcome": "none",
+      "entry_id": "S-e3238ed2255ba0e1",
+      "is_escape": false,
+      "item_id": "TF-AUTO-C02",
+      "item_type": "content_flag",
+      "stratum": "content_flag"
+    },
+    {
+      "auto_rule_id": "AR-content",
+      "downstream_outcome": "none",
       "entry_id": "S-8de144f6f7cd07b7",
       "is_escape": false,
       "item_id": "TF-AUTO-C03",
@@ -53,9 +80,18 @@
     {
       "auto_rule_id": "AR-content",
       "downstream_outcome": "none",
-      "entry_id": "S-9d3b9636a9ac9cee",
+      "entry_id": "S-068fe24f01300c35",
       "is_escape": false,
-      "item_id": "TF-AUTO-C05",
+      "item_id": "TF-AUTO-C04",
+      "item_type": "content_flag",
+      "stratum": "content_flag"
+    },
+    {
+      "auto_rule_id": "AR-content",
+      "downstream_outcome": "none",
+      "entry_id": "S-887d691b936a2337",
+      "is_escape": false,
+      "item_id": "TF-AUTO-C06",
       "item_type": "content_flag",
       "stratum": "content_flag"
     },
@@ -71,9 +107,18 @@
     {
       "auto_rule_id": "AR-content",
       "downstream_outcome": "none",
-      "entry_id": "S-9415ddd731c8a878",
+      "entry_id": "S-b8dad812c948892d",
       "is_escape": false,
-      "item_id": "TF-AUTO-C09",
+      "item_id": "TF-AUTO-C08",
+      "item_type": "content_flag",
+      "stratum": "content_flag"
+    },
+    {
+      "auto_rule_id": "AR-content",
+      "downstream_outcome": "none",
+      "entry_id": "S-ac0b6ee4db1f7de2",
+      "is_escape": false,
+      "item_id": "TF-AUTO-C10",
       "item_type": "content_flag",
       "stratum": "content_flag"
     },
@@ -83,6 +128,15 @@
       "entry_id": "S-2b650b29f64b8d2f",
       "is_escape": false,
       "item_id": "TF-AUTO-C11",
+      "item_type": "content_flag",
+      "stratum": "content_flag"
+    },
+    {
+      "auto_rule_id": "AR-content",
+      "downstream_outcome": "none",
+      "entry_id": "S-d4df844151d5c31f",
+      "is_escape": false,
+      "item_id": "TF-AUTO-C12",
       "item_type": "content_flag",
       "stratum": "content_flag"
     },
@@ -98,6 +152,15 @@
     {
       "auto_rule_id": "AR-payment",
       "downstream_outcome": "none",
+      "entry_id": "S-a4b39e0bde02d9ac",
+      "is_escape": false,
+      "item_id": "TF-AUTO-P02",
+      "item_type": "payment_hold",
+      "stratum": "payment_hold"
+    },
+    {
+      "auto_rule_id": "AR-payment",
+      "downstream_outcome": "none",
       "entry_id": "S-176a44dba7252b53",
       "is_escape": false,
       "item_id": "TF-AUTO-P03",
@@ -107,9 +170,18 @@
     {
       "auto_rule_id": "AR-payment",
       "downstream_outcome": "none",
-      "entry_id": "S-2f928050feaebc31",
+      "entry_id": "S-09d4cb14eb79aa48",
       "is_escape": false,
-      "item_id": "TF-AUTO-P05",
+      "item_id": "TF-AUTO-P04",
+      "item_type": "payment_hold",
+      "stratum": "payment_hold"
+    },
+    {
+      "auto_rule_id": "AR-payment",
+      "downstream_outcome": "none",
+      "entry_id": "S-838a67ca62db3ea5",
+      "is_escape": false,
+      "item_id": "TF-AUTO-P06",
       "item_type": "payment_hold",
       "stratum": "payment_hold"
     },
@@ -125,46 +197,47 @@
     {
       "auto_rule_id": "AR-payment",
       "downstream_outcome": "none",
-      "entry_id": "S-1bae5c7db7d47a18",
+      "entry_id": "S-d69b1afcaeb13cd4",
       "is_escape": false,
-      "item_id": "TF-AUTO-P09",
+      "item_id": "TF-AUTO-P08",
       "item_type": "payment_hold",
       "stratum": "payment_hold"
     },
     {
       "auto_rule_id": "AR-payment",
       "downstream_outcome": "none",
-      "entry_id": "S-98dd5161f4185ddc",
+      "entry_id": "S-1bae5c7db7d47a18",
       "is_escape": false,
-      "item_id": "TF-AUTO-RISK1",
-      "item_type": "content_flag",
-      "stratum": "content_flag"
+      "item_id": "TF-AUTO-P09",
+      "item_type": "payment_hold",
+      "stratum": "payment_hold"
     }
   ],
   "is_census": false,
   "method": "systematic",
   "population": 29,
   "report": "audit_sample",
+  "selection": "even_spaced",
   "strata": [
     {
       "population": 6,
-      "selected": 3,
+      "selected": 5,
       "stratum": "account_appeal",
-      "stride": 2,
+      "stride": null,
       "target": 5
     },
     {
       "population": 13,
-      "selected": 7,
+      "selected": 10,
       "stratum": "content_flag",
-      "stride": 2,
+      "stride": null,
       "target": 10
     },
     {
       "population": 10,
-      "selected": 5,
+      "selected": 8,
       "stratum": "payment_hold",
-      "stride": 2,
+      "stride": null,
       "target": 8
     }
   ],

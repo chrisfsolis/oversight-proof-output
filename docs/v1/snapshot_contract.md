@@ -42,6 +42,18 @@ for `audit-sampling`). Those are typed *inside* the owning tool and likewise rou
 verbatim; each method doc (part of the licensed engine documentation, not published here)
 documents the ones it consumes.
 
+### Policy fields this release adds or re-defaults
+
+Each is optional and is written into a tool's echo of its policy only when your block sets it, so
+a policy that sets none of them echoes what it always did.
+
+| Field | Default | What it does |
+| --- | --- | --- |
+| `calibration_policy.min_peers` | 4 | The fewest peers a calibration outlier is compared against before the evidence packet relies on it. |
+| `irr_policy.min_shared_items` | 10 | The fewest items decided by more than one reviewer that the evidence packet relies on an agreement coefficient over. |
+| `drift_policy.num_windows` | 5 (was 4) | The windows the drift test runs over; 5 is the smallest count at which the default test can fire. |
+| `escape_policy.min_segment_size` | 10 (unchanged) | Now also the fewest items a per-rule escape finding needs, as it already was for a segment. |
+
 ### A policy block is layered over the defaults, one key at a time
 
 A policy block you supply does not replace the engine's default block; it is merged over it per
@@ -80,7 +92,17 @@ and **no** decisions — that is what keeps it reusable across all six tools.
 `decision_latency_minutes`, `edited`, `edit_magnitude`, `override`, `prior_recommendation`,
 `verifier_ids[]`, `stop_invoked`. Joins to a `ReviewItem` on `item_id`. The outcome vocabulary
 is `approve | reject | request_changes | escalate | stop`; edit magnitude is
-`none | minor | major`.
+`none | minor | major`. An optional `executed` (`true` or `false`) says whether an action a person
+refused ran anyway; the agent action log writes it on a `reject` or `stop` record when the export
+carries it, and the delegated-authority comparison reads it.
+
+**An optional field that is absent is not recorded, and is never read as its default.** A missing
+`edited`, `override`, `stop_invoked`, `verifier_ids`, `decision_latency_minutes` or
+`edit_magnitude` leaves that decision out of every rate that needs the field (the dossier omits it);
+a disposition with no `downstream_outcome` leaves every escape rate as "outcome not recorded"; a missing `ai_assisted` or `high_risk_use` that
+could decide an item's scope leaves the item out of coverage as "scope not recorded"; a roster row
+with no `competent_for` is neither competent nor not competent. Each is counted on its own line.
+An explicit `false`, `0` or empty list is an answer and is read as one.
 
 ### `Reviewer` — a roster row
 

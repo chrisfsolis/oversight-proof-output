@@ -1,0 +1,47 @@
+# OpenSSF Scorecard: scores this repository's supply-chain practices, publishes the result to the
+# OpenSSF API (so the badge and https://scorecard.dev can show it), and uploads the findings to
+# code scanning as SARIF.
+#
+# publish_results requires this workflow to stay as Scorecard's own template has it: read-only at
+# the top, no top-level env or defaults, and only the actions below. The job's write permissions
+# are the two publishing needs: security-events to upload SARIF, id-token to sign the publication.
+name: scorecard
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "41 6 * * 1"  # Mondays 06:41 UTC
+
+permissions: read-all
+
+jobs:
+  analysis:
+    name: Scorecard analysis
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      actions: read
+      security-events: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: ossf/scorecard-action@fa7117db83c52d787ae5a89f350999701505d78e  # v2.5.0
+        with:
+          results_file: results.sarif
+          results_format: sarif
+          publish_results: true
+
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9  # v7.0.2
+        with:
+          name: scorecard-sarif
+          path: results.sarif
+          retention-days: 5
+
+      - uses: github/codeql-action/upload-sarif@33d7b85da1a04171e211befe2c739303b9a4c066  # v4.39.3
+        with:
+          sarif_file: results.sarif

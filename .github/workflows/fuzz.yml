@@ -1,0 +1,45 @@
+# Coverage-guided fuzzing of verify.py with Atheris (fuzz/fuzz_verify.py), weekly and on demand.
+#
+# Linux only, on Python 3.13: Atheris 3.1.0 publishes manylinux x86_64 wheels for CPython 3.12,
+# 3.13 and 3.14 and nothing for Windows or macOS. Its one dependency is installed from
+# fuzz/requirements.txt by hash, binary only. The fuzzer stops itself after 10 minutes
+# (-max_total_time); the job's own limit is 20. A crash is a broken D1 rule, and its reproducer is
+# kept as an artifact.
+name: fuzz
+
+on:
+  schedule:
+    - cron: "5 7 * * 1"  # Mondays 07:05 UTC
+  workflow_dispatch:
+
+permissions: read-all
+
+jobs:
+  atheris:
+    name: fuzz verify.py (Atheris, py3.13)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0  # v7.1.0
+        with:
+          python-version: "3.13"
+
+      - name: Install Atheris, pinned by hash
+        run: python -m pip install --require-hashes --only-binary :all: -r fuzz/requirements.txt
+
+      - name: Fuzz for 10 minutes
+        run: python fuzz/fuzz_verify.py -max_total_time=600 -rss_limit_mb=2048
+
+      - name: Keep any reproducer
+        if: failure()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9  # v7.0.2
+        with:
+          name: fuzz-crash
+          path: crash-*
+          if-no-files-found: ignore

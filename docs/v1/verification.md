@@ -120,6 +120,44 @@ manifest, and the root matches the one you supplied". A packet with no files to 
 only the manifest at the packet root is left out of the chain. Every path it prints is relative to
 the kit folder.
 
+### What `verify.py` refuses, and the limits it keeps
+
+A kit is untrusted input: whoever hands it over chose every byte, name and link in it. `verify.py`
+treats anything it cannot read as a kit as a FAIL with a one-line reason, never a crash and never a
+PASS. That covers a `provenance.json` or manifest that is not valid UTF-8 JSON (including a
+byte-order mark), holds NaN or Infinity, repeats a key, or is not a JSON object; a manifest that
+lists one file twice, or two names for one file (differing only by letter case or Unicode form); a
+link (a symlink, or a Windows junction) anywhere it would read through, including `provenance.json`
+itself; and anything under `packet/` that is not a folder or a regular file. It opens nothing
+outside the kit folder, lists no folder outside it, writes nothing and uses no network. A name it
+prints has every control, bidi, zero-width and no-break character escaped as `\uXXXX`, so a name
+cannot add a line to the report or disguise itself.
+
+It also keeps fixed limits, far above what the tool writes (the largest manifest the tool has
+emitted is 35 KB, listing 75 files), and a kit over any of them FAILS, naming the limit:
+
+| Limit | Value |
+| --- | --- |
+| `provenance.json` size | 1 MiB |
+| Integrity manifest size (checked before any of it is read) | 16 MiB |
+| JSON nesting depth in either file | 32 levels |
+| Files listed in the manifest | 10,000 |
+| Files and folders under `packet/` | 20,000 |
+| Folder depth under `packet/` | 32 levels |
+
+File contents are not limited: each file is hashed in 1 MiB blocks, so a large file costs time in
+proportion to its size and a fixed amount of memory.
+
+Two things it does not detect, and the recipient should know them:
+
+- **A kit changed while `verify.py` runs.** It checks the folder as it finds it, file by file; a
+  file replaced, or swapped for a link, between the moment the folder is listed and the moment the
+  file is read is not caught. Verify a copy you control, not a folder someone else can write to
+  during the run.
+- **Hard links.** A hard link is the same file under a second name, and a file system gives no way
+  to tell it from an ordinary file. A file hard-linked into the kit from elsewhere is read as part
+  of the kit; its bytes are still checked against the manifest like any other file's.
+
 Emission is deterministic: the same packet yields the same `provenance.json` and the same `verify.py`
 (no wall-clock, no randomness; the only time value is the packet's `as_of`).
 

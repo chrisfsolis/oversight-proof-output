@@ -1,0 +1,4 @@
+# Every file keeps the exact bytes committed, on every platform. The verification kit under
+# examples/kit/ is checked by SHA-256, so a checkout that rewrote its line endings (Windows does,
+# by default) would turn the published worked example into a FAIL.
+* -text

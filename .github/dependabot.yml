@@ -1,0 +1,12 @@
+# Weekly update proposals for what the workflows pin (actions, by commit SHA) and for the
+# fuzzer's one pinned package (fuzz/requirements.txt, by hash).
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+  - package-ecosystem: pip
+    directory: /fuzz
+    schedule:
+      interval: weekly

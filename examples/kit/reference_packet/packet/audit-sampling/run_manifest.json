@@ -54,8 +54,8 @@
   "posture": "high_attention",
   "run_id": "R-1b81ff707cf64766",
   "sample": {
-    "achieved_margin": 0.178919,
-    "achieved_sample_size": 15,
+    "achieved_margin": 0.094591,
+    "achieved_sample_size": 23,
     "is_census": false,
     "method": "systematic",
     "target_margin": 0.1,

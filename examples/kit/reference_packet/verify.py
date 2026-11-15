@@ -42,12 +42,31 @@ import hashlib
 import json
 import re
 import sys
+import unicodedata
 from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Any
 
 GENESIS = hashlib.sha256(b"OEA-GENESIS-v1").hexdigest()
 _MANIFEST_NAME = "integrity_manifest.json"
+
+# --- what a kit may ask of this script -------------------------------------------------------
+# A kit is untrusted input: whoever hands it over chose every byte, every name and every link in
+# it. These bounds keep a hostile kit from making this script run without end or eat memory. Each
+# is far above what the tool writes -- the largest manifest it has emitted is 35 KB listing 75
+# files, two folders deep -- and a kit over any of them FAILS, naming the limit. File CONTENT is
+# not limited: every file is hashed by streaming it in 1 MiB blocks, so a large file costs time in
+# proportion to its size and a fixed amount of memory.
+MAX_PROVENANCE_BYTES = 1024 * 1024  # provenance.json is under 1 KB as written
+MAX_MANIFEST_BYTES = 16 * 1024 * 1024  # read no further: a larger manifest is refused unparsed
+MAX_JSON_DEPTH = 32  # nesting of arrays and objects; the tool writes three levels
+MAX_FILES = 10_000  # entries in the manifest
+MAX_PACKET_ENTRIES = 20_000  # files and folders found under packet/
+MAX_FOLDER_DEPTH = 32  # folders below packet/; the tool writes one
+
+# A Windows junction (a directory mount point) is a link that Path.is_symlink() does not report
+# before Python 3.12, so it is recognised by its reparse tag, which lstat() reports on Windows.
+_IO_REPARSE_TAG_MOUNT_POINT = 0xA0000003
 
 # The ONLY file the kit writer is able to redact. provenance.json sits outside packet/ by
 # construction, so it is not covered by the manifest or the hash chain; without this allowlist an
@@ -199,22 +218,178 @@ def _rel(kit_dir: Path, path: Path) -> str:
         return path.name
 
 
+class KitRefused(ValueError):
+    """The kit cannot be checked as given; the message is the one-line reason."""
+
+
+def _is_link(path: Path) -> bool:
+    """A symlink, or a Windows junction. Neither is followed: either can point outside the kit."""
+    try:
+        if path.is_symlink():
+            return True
+        return getattr(path.lstat(), "st_reparse_tag", 0) == _IO_REPARSE_TAG_MOUNT_POINT
+    except OSError:
+        return False
+
+
+# The "unrolled loop" form: no alternation inside the repetition, so a long string is matched
+# without building per-character backtracking state (the plain form ran out of memory on 50 MB).
+_JSON_STRING = re.compile(r'"[^"\\]*(?:\\.[^"\\]*)*"', re.DOTALL)
+_JSON_BRACKET = re.compile(r"[\[\]{}]")
+
+
+def _json_depth(text: str) -> int:
+    """How deeply ``text`` nests arrays and objects, counted before it is parsed (brackets inside
+    strings do not count). Python's parser recurses once per level, so an unbounded depth is a
+    crash rather than an answer."""
+    depth = deepest = 0
+    for bracket in _JSON_BRACKET.findall(_JSON_STRING.sub('""', text)):
+        depth = depth + 1 if bracket in "[{" else depth - 1
+        deepest = max(deepest, depth)
+    return deepest
+
+
+def _refuse_duplicate_keys(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
+    out: dict[str, Any] = {}
+    for key, value in pairs:
+        if key in out:
+            raise KitRefused(f"repeats the key {key!r}, so which value counts is ambiguous")
+        out[key] = value
+    return out
+
+
+def _refuse_constant(name: str) -> Any:
+    raise KitRefused(f"holds {name}, which is not a JSON number")
+
+
+def _read_json_object(path: Path, label: str, limit: int) -> dict[str, Any]:
+    """``path`` parsed as one JSON object, or :class:`KitRefused` naming why not.
+
+    Never more than ``limit`` bytes are read: the size is checked before anything is parsed. The
+    text must be UTF-8 (no byte-order mark), nest no deeper than :data:`MAX_JSON_DEPTH`, repeat no
+    key, and hold no NaN or Infinity -- each a way for one file to be read two ways.
+    """
+    try:
+        with open(path, "rb") as handle:
+            size = handle.seek(0, 2)  # the size, from the open file, before a byte is read
+            if size <= limit:
+                handle.seek(0)
+                data = handle.read(size + 1)  # one more, to see a file that grew since
+    except OSError as exc:
+        reason = exc.strerror or type(exc).__name__
+        raise KitRefused(f"{label} could not be read: {reason}") from None
+    if size > limit or len(data) > limit:
+        raise KitRefused(f"{label} is larger than {limit} bytes, the most this verifier reads")
+    try:
+        text = data.decode("utf-8")
+    except UnicodeDecodeError:
+        raise KitRefused(f"{label} is not valid UTF-8") from None
+    if _json_depth(text) > MAX_JSON_DEPTH:
+        raise KitRefused(f"{label} nests deeper than {MAX_JSON_DEPTH} levels")
+    try:
+        value = json.loads(
+            text, object_pairs_hook=_refuse_duplicate_keys, parse_constant=_refuse_constant
+        )
+    except KitRefused as exc:
+        raise KitRefused(f"{label} {exc}") from None
+    except (ValueError, RecursionError) as exc:
+        raise KitRefused(f"{label} is not valid JSON: {exc}") from None
+    if not isinstance(value, dict):
+        raise KitRefused(f"{label} must hold a JSON object, not {type(value).__name__}")
+    return value
+
+
+def _same_name_key(path: str) -> str:
+    """Two paths with the same key name the same file on some file system: Windows and macOS
+    ignore letter case, and macOS also treats the two Unicode spellings of an accented letter as
+    one. A manifest holding both would be checked against one file twice."""
+    return unicodedata.normalize("NFC", path).casefold()
+
+
+def _walk_packet(packet_dir: Path, problems: list[str]) -> dict[str, Path]:
+    """Every regular file under ``packet_dir``, by its "/"-separated relative path.
+
+    Links are reported and never entered or read, so nothing outside the kit is reached through
+    one. Anything that is neither a folder nor a regular file (a pipe, a device) is reported and
+    never opened. The walk stops with :class:`KitRefused` past the folder-depth and entry limits.
+    """
+    found: dict[str, Path] = {}
+    entries = 0
+    stack: list[tuple[Path, int]] = [(packet_dir, 0)]
+    while stack:
+        folder, depth = stack.pop()
+        try:
+            children = sorted(folder.iterdir())
+        except OSError as exc:
+            rel = folder.relative_to(packet_dir).as_posix()
+            problems.append(f"folder could not be read: {rel} ({exc.strerror})")
+            continue
+        for child in children:
+            entries += 1
+            if entries > MAX_PACKET_ENTRIES:
+                raise KitRefused(
+                    f"packet/ holds more than {MAX_PACKET_ENTRIES} files and folders, the most "
+                    "this verifier walks"
+                )
+            rel = child.relative_to(packet_dir).as_posix()
+            if child.is_symlink():
+                problems.append(f"symlink not allowed in packet: {rel}")
+            elif _is_link(child):
+                problems.append(f"junction not allowed in packet: {rel}")
+            elif child.is_dir():
+                if depth + 1 > MAX_FOLDER_DEPTH:
+                    raise KitRefused(
+                        f"packet/ nests folders deeper than {MAX_FOLDER_DEPTH} levels: {rel}"
+                    )
+                stack.append((child, depth + 1))
+            elif child.is_file():
+                found[rel] = child
+            else:
+                problems.append(f"not a regular file: {rel}")
+    return found
+
+
+# Every character that can break a line, reorder text, hide itself or pose as a space: the C0
+# and C1 controls, the no-break spaces, the Arabic letter mark, the zero-width characters and
+# the byte-order mark, the line and paragraph separators, and the bidi marks, embeddings,
+# overrides and isolates. Written as escapes, so this file holds none of them itself.
+_UNPRINTABLE = re.compile(
+    r"[\x00-\x1f\x7f-\x9f\u00a0\u061c\u2007\u200b-\u200f\u2028-\u202f\u2060-\u2069\ufeff]"
+)
+
+
+def _one_line(text: str) -> str:
+    """``text`` with every character ``_UNPRINTABLE`` names escaped, so a name in a hostile kit
+    cannot add a line to the report (a forged "PASS" line, say), hide in it, or reorder what the
+    terminal shows."""
+    return _UNPRINTABLE.sub(lambda m: f"\\u{ord(m.group()):04x}", text)
+
+
 def verify_kit(kit_dir: Path, expect_root: str | None = None) -> dict[str, Any]:
     """Check the kit at ``kit_dir``; with ``expect_root``, also against a root supplied separately.
 
     ``expect_root`` is a lowercase 64-character hex SHA-256, already validated by the caller.
+
+    The kit is untrusted. Whatever it holds, this returns a result rather than raising: a kit that
+    cannot be read as a kit FAILS with a one-line reason. Nothing outside ``kit_dir`` is opened,
+    nothing is written, and nothing is fetched.
     """
-    problems: list[str] = []
     root_source = "supplied" if expect_root is not None else "kit"
+    try:
+        return _verify_kit(kit_dir, expect_root, root_source)
+    except KitRefused as exc:
+        return {"ok": False, "root_source": root_source, "problems": [str(exc)]}
+
+
+def _verify_kit(kit_dir: Path, expect_root: str | None, root_source: str) -> dict[str, Any]:
+    problems: list[str] = []
 
     prov_path = kit_dir / "provenance.json"
+    if _is_link(prov_path):
+        raise KitRefused("provenance.json is a link; it must be a file in the kit folder")
     if not prov_path.is_file():
-        return {
-            "ok": False,
-            "root_source": root_source,
-            "problems": ["provenance.json not found in the kit folder"],
-        }
-    prov = json.loads(prov_path.read_text(encoding="utf-8"))
+        raise KitRefused("provenance.json not found in the kit folder")
+    prov = _read_json_object(prov_path, "provenance.json", MAX_PROVENANCE_BYTES)
 
     try:
         packet_rel = _safe_relative(prov.get("packet_dir", "packet"), "packet_dir")
@@ -225,7 +400,13 @@ def verify_kit(kit_dir: Path, expect_root: str | None = None) -> dict[str, Any]:
         manifest_name = _safe_manifest_name(prov.get("manifest_file", _MANIFEST_NAME))
         redacted = _safe_redacted(prov.get("redacted_files", []))
     except ValueError as exc:
-        return {"ok": False, "root_source": root_source, "problems": [str(exc)]}
+        raise KitRefused(str(exc)) from None
+    # A link anywhere between the kit folder and packet/ could later be re-pointed outside it.
+    step = kit_dir
+    for part in Path(packet_rel).parts:
+        step = step / part
+        if _is_link(step):
+            raise KitRefused(f"packet_dir is reached through a link: {_rel(kit_dir, step)}")
 
     # Only the writer's one redactable input may shield a file from byte re-derivation. Anything
     # else is dropped from the set, so a manifest file named here but missing from the packet falls
@@ -238,32 +419,42 @@ def verify_kit(kit_dir: Path, expect_root: str | None = None) -> dict[str, Any]:
 
     manifest_path = packet_dir / manifest_name
     shown_manifest = _rel(kit_dir, manifest_path)
-    if manifest_path.is_symlink():
-        return {
-            "ok": False,
-            "root_source": root_source,
-            "problems": [f"integrity manifest is a symlink: {shown_manifest}"],
-        }
+    if _is_link(manifest_path):
+        raise KitRefused(f"integrity manifest is a symlink: {shown_manifest}")
     if not manifest_path.is_file():
-        return {
-            "ok": False,
-            "root_source": root_source,
-            "problems": [f"integrity manifest not found: {shown_manifest}"],
-        }
-    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        raise KitRefused(f"integrity manifest not found: {shown_manifest}")
+    manifest = _read_json_object(
+        manifest_path, f"integrity manifest {shown_manifest}", MAX_MANIFEST_BYTES
+    )
     stored = manifest.get("files", [])
     stored_root = manifest.get("root_hash")
-    stored_hash = {}
+    if not isinstance(stored, list):
+        raise KitRefused("invalid manifest: its files entry must be a list")
+    if len(stored) > MAX_FILES:
+        raise KitRefused(
+            f"the manifest lists {len(stored)} files; this verifier checks at most {MAX_FILES}"
+        )
+    stored_hash: dict[str, str] = {}
+    same_name: dict[str, str] = {}
     try:
         for f in stored:
             path = _safe_relative(f["path"], "manifest file path")
-            stored_hash[path] = f["sha256"]
+            want = f["sha256"]
+            if not isinstance(want, str):
+                raise ValueError(f"sha256 of {path} must be a string")
+            key = _same_name_key(path)
+            if key in same_name:
+                first = same_name[key]
+                if first == path:
+                    raise ValueError(f"the manifest lists {path} twice")
+                raise ValueError(
+                    f"the manifest lists {first} and {path}, which name the same file where "
+                    "letter case or Unicode form is ignored"
+                )
+            same_name[key] = path
+            stored_hash[path] = want
     except (KeyError, TypeError, ValueError) as exc:
-        return {
-            "ok": False,
-            "root_source": root_source,
-            "problems": [f"invalid manifest file entry: {exc}"],
-        }
+        raise KitRefused(f"invalid manifest file entry: {exc}") from None
 
     for name in unexpected_redactions:
         problems.append(
@@ -273,31 +464,29 @@ def verify_kit(kit_dir: Path, expect_root: str | None = None) -> dict[str, Any]:
     # ONLY THE MANIFEST AT THE PACKET ROOT IS EXEMPT, by its exact relative path. A file of the
     # same name anywhere else is an ordinary file: it must be listed in the manifest, or the check
     # fails. Exempting the name at any depth let a file be added under that name and pass unseen.
-    present = []
-    for p in packet_dir.rglob("*"):
-        rel = p.relative_to(packet_dir).as_posix()
-        if p.is_symlink():
-            problems.append(f"symlink not allowed in packet: {rel}")
-            continue
-        if p.is_file() and rel != manifest_name:
-            present.append(rel)
-    present = sorted(present)
+    found = _walk_packet(packet_dir, problems)
+    present = sorted(rel for rel in found if rel != manifest_name)
     for path in present:
         if path not in stored_hash:
             problems.append(f"added file not present in the manifest: {path}")
 
     # Rebuild the chain over the manifest's files in canonical (path-sorted) order, recomputing
     # each present file's hash from its bytes. A redacted file is bound by its recorded hash.
+    # Only a file the walk found is opened: the walk entered no link, so none of these leaves the
+    # kit, and a name the walk did not find costs no file-system call at all.
     records: list[dict[str, Any]] = []
     for path in sorted(stored_hash):
         want = stored_hash[path]
-        try:
-            fpath = _safe_packet_file(packet_dir, path)
-        except ValueError as exc:
-            problems.append(str(exc))
-            continue
-        if fpath.is_file():
-            got = _sha256_file(fpath)
+        if path in found:
+            try:
+                fpath = _safe_packet_file(packet_dir, path)
+                got = _sha256_file(fpath)
+            except ValueError as exc:
+                problems.append(str(exc))
+                continue
+            except OSError as exc:
+                problems.append(f"file could not be read: {path} ({exc.strerror})")
+                continue
             if got != want:
                 problems.append(f"content changed: {path}")
             records.append({"record_id": path, "payload": {"sha256": got}})
@@ -452,7 +641,20 @@ def main(argv: list[str]) -> int:
         print(_USAGE, file=sys.stderr)
         return EXIT_USAGE
     kit_dir = Path(kit_arg) if kit_arg is not None else Path(__file__).resolve().parent
-    result = verify_kit(kit_dir, expect_root)
+    # A name this console cannot show is printed escaped rather than ending the run mid-report.
+    for stream in (sys.stdout, sys.stderr):
+        reconfigure = getattr(stream, "reconfigure", None)
+        if reconfigure is not None:
+            reconfigure(errors="backslashreplace")
+    try:
+        result = verify_kit(kit_dir, expect_root)
+    except Exception as exc:  # the last line of defence: fail closed, with one line
+        result = {
+            "ok": False,
+            "root_source": "supplied" if expect_root is not None else "kit",
+            "problems": [f"this kit could not be checked: {type(exc).__name__}: {exc}"],
+        }
+    result["problems"] = [_one_line(problem) for problem in result["problems"]]
 
     if as_json:
         print(json.dumps(result, indent=2, sort_keys=True))

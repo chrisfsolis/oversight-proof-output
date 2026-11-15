@@ -34,7 +34,7 @@ Without --expect-root, PASS says the kit is internally consistent: the manifest 
 travel in this kit, so someone who changed a file could change them too. With --expect-root and a
 root you received separately, PASS says the packet matches that root.
 
-Expected root hash: ce699c8ef1c4b717de1f585ded9eba7b1a03388fc8c388446a49a03c19b57280
+Expected root hash: c7f5b5fc58bd1ffe6506116b2a21e933ae5a0b396ffbb2380dca15ef8e9c5bad
 Files covered: 75
 
 ## What this does and does not check

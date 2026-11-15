@@ -1,0 +1,10 @@
+# The coverage-guided fuzzer's one dependency, pinned by hash (OpenSSF Scorecard,
+# Pinned-Dependencies). Install with:
+#   pip install --require-hashes --only-binary :all: -r fuzz/requirements.txt
+# atheris 3.1.0 has no dependencies of its own. The hashes are its manylinux x86_64 wheels for
+# CPython 3.12, 3.13 and 3.14, read from https://pypi.org/pypi/atheris/3.1.0/json on 2026-11-14.
+# The fuzz workflow runs Python 3.13. Dependabot (.github/dependabot.yml) proposes updates.
+atheris==3.1.0 \
+    --hash=sha256:ec5e11f21a4c197fe91f7aea2b2de88e623c73a21fc07b105ac6329a1588457b \
+    --hash=sha256:f8a9f51ce8369026e8eb7b7174835e8c4c85a1a6db5d9add36c15100779d2a39 \
+    --hash=sha256:315a0b5c819852b1ffe1ca72efc389c7724881f2c33e4aacb8c6bcec49bd5011

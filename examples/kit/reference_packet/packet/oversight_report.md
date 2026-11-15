@@ -6,13 +6,13 @@ _As of (input anchor): 2026-05-20T00:00:00Z_
 
 ## What this packet shows
 
-20 review items were recorded over Consumer lending - loan application review, as of 2026-05-20.
+49 review items were recorded over Consumer lending - loan application review, as of 2026-05-20; 20 of them are recorded as in scope.
 
 All 20 review items have at least one recorded decision (100%). 14 of 40 decisions changed the AI's output in some way (35%). 0 of 29 auto-approved items later turned out to need a person.
 
 No governance action is recommended by this packet.
 
-No escalating findings across the audited areas; review the detail before relying.
+Not ready: the evidence shows findings that an accountable owner should act on before relying on this packet.
 
 | Area | Status |
 | --- | --- |
@@ -27,8 +27,8 @@ Prioritized and owner-assignable; advisory — the owner decides what to act on.
 
 | Priority | Area | Gap | Suggested action | Owner |
 | --- | --- | --- | --- | --- |
-| P2 | audit-oversight | Decisions below the minimum plausible review time | 2 decisions were made faster than your policy's minimum review time. Ask the reviewers whether those items were simple, or whether the review step is being skipped. | AI governance owner |
-| P2 | audit-sampling | Item TF-AUTO-RISK1 bypassed review but should not have | TF-AUTO-RISK1 was auto-approved even though your own rule required a person for it. Have someone review it now, and check why the rule let it through. | Trust & safety owner |
+| P2 | audit-oversight | Decisions below the minimum plausible review time | 2 decisions were made faster than your policy's minimum review time. Ask the reviewers whether those items were simple, or whether the review step is being skipped. This row stands for 1 finding, naming 2: DEC-0001 and DEC-0008. | AI governance owner |
+| P2 | audit-sampling | Items that bypassed review but should not have | 1 item was auto-approved even though your own rule required a person for it. Have someone review it now, and check why the rule let it through. This row stands for 1 finding: TF-AUTO-RISK1. | Trust & safety owner |
 
 ## Human review of each decision
 
@@ -38,6 +38,7 @@ Each row states its value, the evidence status, how completely your data carried
 | --- | --- | --- | --- |
 | Oversight coverage | 100% | Evidenced | High completeness |
 | *All 20 review items have at least one recorded decision (100%).* |  |  |  |
+| *29 of the review items did not record whether they are in scope, so this rate leaves them out.* |  |  |  |
 | Override rate | 15% | Evidenced | High completeness |
 | *6 of 40 decisions that recorded the override field overrode the AI's recommendation (15%).* |  |  |  |
 | Intervention rate | 35% | Evidenced | High completeness |
@@ -86,6 +87,7 @@ Every metric in the table above is judged against at least one of these numbers.
 
 - **[audit-oversight] Decisions below the minimum plausible review time** (High attention) — **Next step:** 2 decisions were made faster than your policy's minimum review time. Ask the reviewers whether those items were simple, or whether the review step is being skipped.
   - 2/40 decisions (0.050) were faster than min_decision_latency_minutes=2. Implausibly fast decisions are a weak-evidence SIGNAL that review may be nominal, not proof. Affected: DEC-0001, DEC-0008.
+  - Judged against: minimum decision time (minutes) 2 (your policy); share of fast decisions 0.5 (this tool's default); partial-evidence floor 0.05 (this tool's default).
 - **[audit-sampling] Item TF-AUTO-RISK1 bypassed review but should not have** (High attention) — **Next step:** TF-AUTO-RISK1 was auto-approved even though your own rule required a person for it. Have someone review it now, and check why the rule let it through.
   - TF-AUTO-RISK1 (content_flag) was auto-approved under AR-payment but: item_type 'content_flag' is not allowed by AR-payment.
   - *Suggested action (from audit-sampling):* Route TF-AUTO-RISK1 for retrospective human review and tighten the bypass policy or rule that let it through.
@@ -137,6 +139,12 @@ The opt-out records reach the number this measure needs, so the unrecorded share
 Elapsed CALENDAR DAYS from request to recorded stop — minimum 2, median 5.0, mean 5.333333, maximum 9. A negative figure means the log records a stop before the request it answers.
 
 Thresholds read: at least 5 records, and an unrecorded share of 0.5 or more, before anything is surfaced. No threshold is read over the elapsed figures.
+
+## What this packet does not rely on
+
+Each line names a signal this packet does not rely on, the counts behind that, and where the tool's own report still shows it.
+
+- Drift was not tested: the decisions fill 1 of the 6 windows the drift policy asks for, so this packet reads it as too few windows to test, not as no drift.
 
 ## How this maps to the frameworks you named
 

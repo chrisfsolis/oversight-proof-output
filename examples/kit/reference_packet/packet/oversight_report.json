@@ -4,15 +4,15 @@
   "scenario": "Consumer lending - loan application review",
   "disclaimer": "Advisory evidence only. This packet compiles deterministic, local audit outputs over synthetic or supplied data. It is not a compliance determination or legal advice; the accountable owner (and, where relevant, qualified counsel) remains the source of truth. Each metric is shown with how completely its source data carried the field it reads.",
   "executive_summary": {
-    "readiness": "No escalating findings across the audited areas; review the detail before relying.",
-    "readiness_level": "no_escalating_findings",
+    "readiness": "Not ready: the evidence shows findings that an accountable owner should act on before relying on this packet.",
+    "readiness_level": "action_needed",
     "scorecard": [
       {"area": "Oversight evidence", "status": "evidence_present"},
       {"area": "Reviewer consistency", "status": "informational"},
       {"area": "Auto-approval safety", "status": "high_attention"},
       {"area": "Evidence integrity", "status": "tamper_evident_manifest"}
     ],
-    "plain_summary": ["20 review items were recorded over Consumer lending - loan application review, as of 2026-05-20.", "All 20 review items have at least one recorded decision (100%). 14 of 40 decisions changed the AI's output in some way (35%). 0 of 29 auto-approved items later turned out to need a person.", "No governance action is recommended by this packet."]
+    "plain_summary": ["49 review items were recorded over Consumer lending - loan application review, as of 2026-05-20; 20 of them are recorded as in scope.", "All 20 review items have at least one recorded decision (100%). 14 of 40 decisions changed the AI's output in some way (35%). 0 of 29 auto-approved items later turned out to need a person.", "No governance action is recommended by this packet."]
   },
   "key_metrics": [
     {
@@ -27,7 +27,10 @@
       "second_actor_recorded": null,
       "measured_population": null,
       "unmeasured_count": null,
-      "statement": "All 20 review items have at least one recorded decision (100%)."
+      "statement": "All 20 review items have at least one recorded decision (100%).",
+      "not_recorded": [
+        {"line": "scope_not_recorded", "count": 29, "sentence": "29 of the review items did not record whether they are in scope, so this rate leaves them out."}
+      ]
     },
     {
       "metric": "override_rate",
@@ -179,8 +182,8 @@
     }
   ],
   "roadmap": [
-    {"priority": "P2", "area": "audit-oversight", "gap": "Decisions below the minimum plausible review time", "plain_action": "2 decisions were made faster than your policy's minimum review time. Ask the reviewers whether those items were simple, or whether the review step is being skipped.", "technical": "", "owner_role": "AI governance owner"},
-    {"priority": "P2", "area": "audit-sampling", "gap": "Item TF-AUTO-RISK1 bypassed review but should not have", "plain_action": "TF-AUTO-RISK1 was auto-approved even though your own rule required a person for it. Have someone review it now, and check why the rule let it through.", "technical": "Route TF-AUTO-RISK1 for retrospective human review and tighten the bypass policy or rule that let it through.", "owner_role": "Trust & safety owner"}
+    {"priority": "P2", "area": "audit-oversight", "gap": "Decisions below the minimum plausible review time", "plain_action": "2 decisions were made faster than your policy's minimum review time. Ask the reviewers whether those items were simple, or whether the review step is being skipped.", "technical": "", "owner_role": "AI governance owner", "finding_count": 1, "finding_ids": ["F-0001"], "ids": ["DEC-0001", "DEC-0008"], "more_like_this": "This row stands for 1 finding, naming 2: DEC-0001 and DEC-0008."},
+    {"priority": "P2", "area": "audit-sampling", "gap": "Items that bypassed review but should not have", "plain_action": "1 item was auto-approved even though your own rule required a person for it. Have someone review it now, and check why the rule let it through.", "technical": "Each finding's own technical text is under \"What needs attention\".", "owner_role": "Trust & safety owner", "finding_count": 1, "finding_ids": ["F-risky_bypass-ea96d0eec6497306"], "ids": ["TF-AUTO-RISK1"], "more_like_this": "This row stands for 1 finding: TF-AUTO-RISK1."}
   ],
   "appendix": {
     "tool_outputs": {"audit-consistency": "audit-consistency/", "audit-oversight": "audit-oversight/", "audit-sampling": "audit-sampling/"},
@@ -295,5 +298,18 @@
         "recommendation": "Read these records beside your own request log with the accountable owner to establish whether a stop was recorded elsewhere, recorded late, or not recorded. This tool reads only what the supplied file contains."
       }
     ]
+  },
+  "statistical_limits": {
+    "lines": [
+      {"tool": "audit-consistency", "signal": "temporal_drift", "line": "too_few_windows", "status": "additional_data_needed", "windows": 6, "filled": 1, "source": "your policy", "sentence": "Drift was not tested: the decisions fill 1 of the 6 windows the drift policy asks for, so this packet reads it as too few windows to test, not as no drift."}
+    ]
+  },
+  "finding_thresholds": {
+    "audit-oversight:F-0001": [
+      {"threshold": "minimum decision time (minutes)", "value": 2, "source": "your policy", "text": "minimum decision time (minutes) 2 (your policy)"},
+      {"threshold": "share of fast decisions", "value": 0.5, "source": "this tool's default", "text": "share of fast decisions 0.5 (this tool's default)"},
+      {"threshold": "partial-evidence floor", "value": 0.05, "source": "this tool's default", "text": "partial-evidence floor 0.05 (this tool's default)"}
+    ],
+    "audit-sampling:F-risky_bypass-ea96d0eec6497306": []
   }
 }

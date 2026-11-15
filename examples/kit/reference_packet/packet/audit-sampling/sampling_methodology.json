@@ -1,6 +1,6 @@
 {
-  "achieved_margin": 0.178919,
-  "achieved_sample_size": 15,
+  "achieved_margin": 0.094591,
+  "achieved_sample_size": 23,
   "assumptions": [
     "p=0.5 maximizes variance, giving a conservative sample size.",
     "Wilson score intervals are used for proportion estimates.",
