@@ -23,9 +23,9 @@ python3 verify.py examples/kit/reference_packet
 ```
 
 ```
-PASS (internally consistent): every file matches the manifest and the root recorded in this kit (c7f5b5fc58bd1ffe6506116b2a21e933ae5a0b396ffbb2380dca15ef8e9c5bad). To confirm the packet is the one that was sent, compare this root with one you received separately, or run again with --expect-root.
+PASS (internally consistent): every file matches the manifest and the root recorded in this kit (bdb5a2b68fc2ddd3548607cf7c3f5668e431d0974bd530218d1cedfff62b747f). To confirm the packet is the one that was sent, compare this root with one you received separately, or run again with --expect-root.
   files checked: 75
-  root: c7f5b5fc58bd1ffe6506116b2a21e933ae5a0b396ffbb2380dca15ef8e9c5bad
+  root: bdb5a2b68fc2ddd3548607cf7c3f5668e431d0974bd530218d1cedfff62b747f
 This checks the packet's files against that root. It is not a compliance finding.
 ```
 
@@ -35,13 +35,13 @@ get this result. What closes that gap is a root you received **separately** from
 email, on a ticket, in a contract — passed with `--expect-root`:
 
 ```
-python3 verify.py examples/kit/reference_packet --expect-root c7f5b5fc58bd1ffe6506116b2a21e933ae5a0b396ffbb2380dca15ef8e9c5bad
+python3 verify.py examples/kit/reference_packet --expect-root bdb5a2b68fc2ddd3548607cf7c3f5668e431d0974bd530218d1cedfff62b747f
 ```
 
 ```
-PASS: every file matches the manifest, and the root matches the one you supplied (c7f5b5fc58bd1ffe6506116b2a21e933ae5a0b396ffbb2380dca15ef8e9c5bad).
+PASS: every file matches the manifest, and the root matches the one you supplied (bdb5a2b68fc2ddd3548607cf7c3f5668e431d0974bd530218d1cedfff62b747f).
   files checked: 75
-  root: c7f5b5fc58bd1ffe6506116b2a21e933ae5a0b396ffbb2380dca15ef8e9c5bad
+  root: bdb5a2b68fc2ddd3548607cf7c3f5668e431d0974bd530218d1cedfff62b747f
 This checks the packet's files against that root. It is not a compliance finding.
 ```
 
@@ -64,8 +64,8 @@ python3 verify.py /tmp/tampered
 ```
 FAIL: the evidence packet did not verify.
   - content changed: oversight_report.md
-  - root does not match the manifest (recomputed 441b1309a4db729d3e457b71855129fa71d36c18f05d3a598e04ddf1e781440a, manifest c7f5b5fc58bd1ffe6506116b2a21e933ae5a0b396ffbb2380dca15ef8e9c5bad)
-  - root does not match provenance.json (recomputed 441b1309a4db729d3e457b71855129fa71d36c18f05d3a598e04ddf1e781440a, expected c7f5b5fc58bd1ffe6506116b2a21e933ae5a0b396ffbb2380dca15ef8e9c5bad)
+  - root does not match the manifest (recomputed 762852e2b8646e0ec9600a81671dfdfae38604246de7913fe64fe12ef68527ab, manifest bdb5a2b68fc2ddd3548607cf7c3f5668e431d0974bd530218d1cedfff62b747f)
+  - root does not match provenance.json (recomputed 762852e2b8646e0ec9600a81671dfdfae38604246de7913fe64fe12ef68527ab, expected bdb5a2b68fc2ddd3548607cf7c3f5668e431d0974bd530218d1cedfff62b747f)
 ```
 
 One byte, in a 22 KB report, inside a 76-file packet. The recomputed root you see will differ from
@@ -142,10 +142,10 @@ say any legal or regulatory obligation has been met.
 
 ## Requirements
 
-Python 3.11 or later, and nothing else. `verify.py` imports only the standard library — `hashlib`,
-`json`, `re`, `sys`, `unicodedata`, `datetime`, `pathlib`, `typing`, and `annotations` from
-`__future__` — and a guard in the private repository fails the build if an import of the engine
-is ever added to it.
+Python 3.11 or later; tested on 3.11, 3.12 and 3.13 on Linux, Windows and macOS. Nothing else is
+needed: `verify.py` imports only the standard library — `hashlib`, `json`, `re`, `sys`,
+`unicodedata`, `datetime`, `pathlib`, `typing`, and `annotations` from `__future__` — and a guard
+in the private repository fails the build if an import of the engine is ever added to it.
 
 ## License
 

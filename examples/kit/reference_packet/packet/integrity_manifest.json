@@ -2,7 +2,7 @@
   "as_of": "2026-05-20T00:00:00Z",
   "format_version": "5",
   "genesis": "fe5644cfa7cc7d9d8a75caa6e104e83ad560ad99ada403ca33756fd45fda094a",
-  "root_hash": "c7f5b5fc58bd1ffe6506116b2a21e933ae5a0b396ffbb2380dca15ef8e9c5bad",
+  "root_hash": "bdb5a2b68fc2ddd3548607cf7c3f5668e431d0974bd530218d1cedfff62b747f",
   "record_count": 75,
   "files": [
     {"path": "audit-consistency/decision_consistency_scorecard.json", "sha256": "df216dafb8ca564f27c8aa70d7e7e5640bdf08223c94ffc03a699f9e21c4e0e5"},
@@ -77,8 +77,8 @@
     {"path": "audit-sampling/segment_escape_report.md", "sha256": "9e0d8b8d761d9df7483dd9cae0f323d3ebb171bc50baad192941a66f566455cc"},
     {"path": "audit-sampling/whatif_recommendations.json", "sha256": "b922ce8e508ef4ecda242274f30245e038620c67beb510d7a2afec9010898029"},
     {"path": "audit-sampling/whatif_recommendations.md", "sha256": "6ad99fb0f2e84f54a7ad95286cdaac11afce6ca58f86f16dbbc09288f5f44f81"},
-    {"path": "oversight_report.json", "sha256": "cfc9f1bb91da1c0923879b745cab7b57cb4ea691075b8ff5a446baa1c0d3600f"},
-    {"path": "oversight_report.md", "sha256": "d5ba0fc640158699e4cc8c15a6f7fd752c6792eb880bd62ae13b3589a5f370d3"},
+    {"path": "oversight_report.json", "sha256": "ed50577205d00c35490e6f63a2dac00c49bc1cb5c387d928b17b12d67dee1341"},
+    {"path": "oversight_report.md", "sha256": "614b6f607de1b495050fa1d5f6d6a036831ab2cf8cbeb6812da843855cb385bb"},
     {"path": "snapshot_envelope.json", "sha256": "305a61f00c0395c80b0a89f7bf994c03351c01ccafb5fd0679be6fd8fb08de1a"}
   ],
   "records": [
@@ -154,9 +154,9 @@
     {"content_hash": "8a73b6b122e67292335c6c6045b253f30e6c9428df975b1a02212d9b5a98bbfe", "index": 69, "link_hash": "54b9cf897a9344d1287a31f3d8241a92bed177c5e24c8a0a74933a0ddb99bf50", "prev_hash": "6abee79b0adaf7e8ba3e88d2bfbeaeb17eb209f394e55a40de50afa70a431304", "record_id": "audit-sampling/segment_escape_report.md"},
     {"content_hash": "37db04183cc6b80424e46ac864f9033021de078a94e89c84ee50f06e4557b576", "index": 70, "link_hash": "a63ba1047dc3871d5751a0460000d7e9c019d53cc137aa9ad2dc37b52ae9763c", "prev_hash": "54b9cf897a9344d1287a31f3d8241a92bed177c5e24c8a0a74933a0ddb99bf50", "record_id": "audit-sampling/whatif_recommendations.json"},
     {"content_hash": "abc46fd086cb9f7be517e8fe78b73382aba3f7445676ea5b168ab132920eba3b", "index": 71, "link_hash": "b1bfc226721732aeba9650a03efbc94fcab9eb571814a8e4c54f3cfd428e7892", "prev_hash": "a63ba1047dc3871d5751a0460000d7e9c019d53cc137aa9ad2dc37b52ae9763c", "record_id": "audit-sampling/whatif_recommendations.md"},
-    {"content_hash": "dc8e998f32fa57e83bb1b065729d688826a3f7724c92cd825c158993a578c319", "index": 72, "link_hash": "2e0f32c54d61990df8b920f357528709b0ee4b8e192516d7415ce0276f1c3d77", "prev_hash": "b1bfc226721732aeba9650a03efbc94fcab9eb571814a8e4c54f3cfd428e7892", "record_id": "oversight_report.json"},
-    {"content_hash": "ded97e297d014ee799fab19e923ea1dc1393d846b528fbb297b4f7b39aa4f7f8", "index": 73, "link_hash": "7bc9f3a0c113bbc408de5d1544e76dcb454da9a0a0e76a233e156c2c1292cc52", "prev_hash": "2e0f32c54d61990df8b920f357528709b0ee4b8e192516d7415ce0276f1c3d77", "record_id": "oversight_report.md"},
-    {"content_hash": "008336c129acfa0b49056d47b26ff06447c8b5d8e731f5df038ed8d4f8ff3791", "index": 74, "link_hash": "c7f5b5fc58bd1ffe6506116b2a21e933ae5a0b396ffbb2380dca15ef8e9c5bad", "prev_hash": "7bc9f3a0c113bbc408de5d1544e76dcb454da9a0a0e76a233e156c2c1292cc52", "record_id": "snapshot_envelope.json"}
+    {"content_hash": "dc94932c1a1006137b0df94a0f2aeab2a733fd95ef626f507277e0b04a1588a0", "index": 72, "link_hash": "81c04b795176d005cc2daea32163eef49319d09fdc0f6a7d6fd47e12d80b9186", "prev_hash": "b1bfc226721732aeba9650a03efbc94fcab9eb571814a8e4c54f3cfd428e7892", "record_id": "oversight_report.json"},
+    {"content_hash": "f5366361a26ca02115efdf8a69fdece03221f02c8d936695295709b01ef26b4a", "index": 73, "link_hash": "a0948a2ee1109aac06d980f5316f6c1eac18e48657eb5bdf32f2573b37bfc22c", "prev_hash": "81c04b795176d005cc2daea32163eef49319d09fdc0f6a7d6fd47e12d80b9186", "record_id": "oversight_report.md"},
+    {"content_hash": "008336c129acfa0b49056d47b26ff06447c8b5d8e731f5df038ed8d4f8ff3791", "index": 74, "link_hash": "bdb5a2b68fc2ddd3548607cf7c3f5668e431d0974bd530218d1cedfff62b747f", "prev_hash": "a0948a2ee1109aac06d980f5316f6c1eac18e48657eb5bdf32f2573b37bfc22c", "record_id": "snapshot_envelope.json"}
   ],
   "note": "SHA-256 hash chain over every packet file (sorted by path). Recompute each hash and rebuild the chain; a changed root means a file was modified, added, or removed."
 }

@@ -28,9 +28,9 @@ Prioritized and owner-assignable; advisory — the owner decides what to act on.
 | Priority | Area | Gap | Suggested action | Owner |
 | --- | --- | --- | --- | --- |
 | P2 | audit-oversight | Decisions below the minimum plausible review time | 2 decisions were made faster than your policy's minimum review time. Ask the reviewers whether those items were simple, or whether the review step is being skipped. This row stands for 1 finding, naming 2: DEC-0001 and DEC-0008. | AI governance owner |
-| P2 | audit-sampling | Items that bypassed review but should not have | 1 item was auto-approved even though your own rule required a person for it. Have someone review it now, and check why the rule let it through. This row stands for 1 finding: TF-AUTO-RISK1. | Trust & safety owner |
+| P2 | audit-sampling | Items that bypassed review but should not have | One item, TF-AUTO-RISK1, was auto-approved even though your own rule required a person for it. Have someone review it now, and check why the rule let it through. This row stands for 1 finding: TF-AUTO-RISK1. | Trust & safety owner |
 
-## Human review of each decision
+## Whether a person reviewed each decision
 
 Each row states its value, the evidence status, how completely your data carried the field, and one sentence saying what the records show.
 
@@ -79,7 +79,7 @@ Every metric in the table above is judged against at least one of these numbers.
 
 - `evidenced` (Evidenced) — measured on complete records, and the reading is at or above every floor shown here.
 - `partially_evidenced` (Partially evidenced) — measured on complete records, and the reading is between the floors shown here.
-- `insufficient_evidence` (Insufficient evidence) — measured on complete records, and the reading is below the floor shown here.
+- `insufficient_evidence` (Not enough evidence to assess) — measured on complete records, and the reading is below the floor shown here.
 - `additional_data_needed` (Additional data needed) — the field was recorded on too few records to read, so no number is given.
 - `not_measured_by_this_tool` (Not measured by this tool) — nothing in this packet bears on it; the floor, if any, is someone else's to check.
 
@@ -92,7 +92,7 @@ Every metric in the table above is judged against at least one of these numbers.
   - TF-AUTO-RISK1 (content_flag) was auto-approved under AR-payment but: item_type 'content_flag' is not allowed by AR-payment.
   - *Suggested action (from audit-sampling):* Route TF-AUTO-RISK1 for retrospective human review and tighten the bypass policy or rule that let it through.
 
-## Appeal handling, as the supplied records describe it
+## How appeals were handled, per your records
 
 These are counts over the appeal records you supplied: how many arrived, how many were resolved, how long resolutions took, and how often a rationale was recorded. Four thresholds are read over those counts, and two have to trip before anything is surfaced.
 
@@ -121,7 +121,7 @@ Each signal, and whether it tripped:
 
 Thresholds read: at least 5 resolved appeals, and 2 of 4 signals, before anything is surfaced.
 
-## Opt-out records, as the supplied log describes them
+## How opt-out requests were handled, per your log
 
 These are counts over the opt-out records you supplied: how many requests arrived, how many carry a stop recorded against them, and how many CALENDAR DAYS apart the two timestamps are where one was recorded.
 
@@ -217,7 +217,7 @@ Of 5 obligations: 4 measured by this run, 1 outside this tool's reach. The group
 | risk_assessment_human_oversight_part | CCPA ADMT risk assessment for significant-decision uses | Conduct a risk assessment for uses that make significant decisions, of which human oversight is one part rather than the whole. | Not measured by this tool | The obligation is to conduct a risk assessment. This tool produces one input to the human-oversight portion of it, and holding that input is not having conducted the assessment. Evidenced by the completed risk assessment itself. |
 
 
-## Appendix
+## Where the full outputs and hashes are
 
 Each audit's full report set is in its folder; the whole packet is hashed into a
 tamper-evident integrity manifest.
